@@ -1747,7 +1747,7 @@ static bool stratum_gen_work(struct stratum_ctx *sctx, struct work *work)
 		stratum_diff = sctx->job.diff;
 		if (opt_showdiff && work->targetdiff != stratum_diff)
 			snprintf(sdiff, 32, " (%.5f)", work->targetdiff);
-		applog(LOG_WARNING, "Stratum difficulty set to %g%s", stratum_diff, sdiff);
+		applog(LOG_WARNING, "\033[1;37;43m NET    \033[0m" "\033[35m New job \033[0m" "\033[33mStratum difficulty set to %g%s\033[0m", stratum_diff, sdiff);
 	}
 
 	return true;
@@ -2710,7 +2710,7 @@ wait_stratum_url:
 		goto out;
 
 	if (!pool_is_switching)
-		applog(LOG_BLUE, "Starting on %s", stratum.url);
+		applog(LOG_BLUE, "\033[1;37;46m INFO   \033[0m""\033[36m Starting on %s \033[0m", stratum.url);
 
 	ctx->pooln = pooln = cur_pooln;
 	switchn = pool_switch_count;
@@ -3685,16 +3685,11 @@ int main(int argc, char *argv[])
 	// get opt_quiet early
 	parse_single_opt('q', argc, argv);
 
-	printf("***************************************************************\n");	
-	printf("*  ccminer CPU: " PACKAGE_VERSION " for Verushash v2.2 based on ccminer   *\n");
-	printf("***************************************************************\n");	
-
-        printf("Originally based on Christian Buchner and Christian H. project\n");
-        printf("Adapted to Verus by Monkins1010\n");
-        printf("Adapted for ARM optimization by Mixed-Nuts\n");
-        printf("Adapted and compiled by Oink.vrsc@\n");
-        printf("Goto https://wiki.verus.io/#!index.md for mining setup guides. \n");
-        printf("Git repo located at: " PACKAGE_URL " \n\n");
+	printf("*******************************************\n");	
+	printf("\033[22;36m ccminer CPU \033[0m  : " PACKAGE_VERSION "\n");
+	printf("Verushash v2.2 based on ccminer\n");
+	printf("*******************************************\n");	
+        printf("                                           \n");
 
 	rpc_user = strdup("");
 	rpc_pass = strdup("");
@@ -3993,7 +3988,7 @@ int main(int argc, char *argv[])
 		}
 	}
 
-	applog(LOG_INFO, "%d miner thread%s started, "
+	applog(LOG_INFO, "\033[1;37;45m INFO   \033[0m %d miner thread%s started, "
 		"using '%s' algorithm.",
 		opt_n_threads, opt_n_threads > 1 ? "s":"",
 		algo_names[opt_algo]);
