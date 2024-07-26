@@ -841,7 +841,7 @@ static bool work_decode(const json_t *val, struct work *work)
 	return true;
 }
 
-#define YES "Yes!!!!!!!"
+#define YES "yes!"
 #define YAY "yay!!!"
 #define BOO "booooo"
 
@@ -886,14 +886,14 @@ int share_result(int result, int pooln, double sharediff, const char *reason)
 		sprintf(solved, " solved: %u", p->solved_count);
 	}
 
-	applog(LOG_NOTICE, "\033[32mAccepted\033[0m:\033[32m[%lu]/\033[0m\033[31m[%lu]\033[0m \033[33m%s\033[0m ⚡⚡\033[36m%s %s%s\033[0m🚀🚀",
-		p->accepted_count,
-		p->rejected_count,
-		suppl, s, flag, solved);
+	applog(LOG_NOTICE, "accepted: %lu/%lu (%s), %s %s%s",
+			p->accepted_count,
+			p->accepted_count + p->rejected_count,
+			suppl, s, flag, solved);
 	if (reason) {
-		applog(LOG_WARNING, "\033[1;37;45m INFO   \033[0m Reject reason: %s", reason);
+		applog(LOG_WARNING, "reject reason: %s", reason);
 		if (!check_dups && strncasecmp(reason, "duplicate", 9) == 0) {
-			applog(LOG_WARNING, "\033[1;37;45m INFO   \033[0m Enabling duplicates check feature");
+			applog(LOG_WARNING, "enabling duplicates check feature");
 			check_dups = true;
 			g_work_time = 0;
 		}
@@ -1040,7 +1040,7 @@ static bool submit_upstream_work(CURL *curl, struct work *work)
 		stratum.sharediff = work->sharediff[idnonce];
 
 		if (net_diff && stratum.sharediff > net_diff && (opt_debug || opt_debug_diff))
-			applog(LOG_INFO, "\033[1;37;45m INFO   \033[0m share diff: %.5f, possible block found!!!",
+			applog(LOG_INFO, "share diff: %.5f, possible block found!!!",
 				stratum.sharediff);
 		else if (opt_debug_diff)
 			applog(LOG_DEBUG, "share diff: %.5f (x %.1f)",
@@ -1166,6 +1166,37 @@ static bool gbt_work_decode(const json_t *val, struct work *work)
 	}
 
 	return true;
+}
+
+#define GBT_CAPABILITIES "[\"coinbasetxn\", \"coinbasevalue\", \"longpoll\", \"workid\"]"
+static const char *gbt_req =
+	"{\"method\": \"getblocktemplate\", \"params\": [{"
+	//	"\"capabilities\": " GBT_CAPABILITIES ""
+	"}], \"id\":9}\r\n";
+
+static bool get_blocktemplate(CURL *curl, struct work *work)
+{
+	struct pool_infos *pool = &pools[work->pooln];
+	if (!allow_gbt)
+		return false;
+
+	int curl_err = 0;
+	json_t *val = json_rpc_call_pool(curl, pool, gbt_req, false, false, &curl_err);
+
+	if (!val && curl_err == -1) {
+		// when getblocktemplate is not supported, disable it
+		allow_gbt = false;
+		if (!opt_quiet) {
+				applog(LOG_BLUE, "gbt not supported, block height notices disabled");
+		}
+		return false;
+	}
+
+	bool rc = gbt_work_decode(json_object_get(val, "result"), work);
+
+	json_decref(val);
+
+	return rc;
 }
 
 // good alternative for wallet mining, difficulty and net hashrate
@@ -2726,7 +2757,7 @@ wait_stratum_url:
 				if (switchn != pool_switch_count)
 					goto pool_switched;
 				if (!opt_benchmark)
-					applog(LOG_ERR, "\033[1;37;43m INFO   \033[0m""\033[22;31m ...retry after %d seconds\033[0m", opt_fail_pause);
+					applog(LOG_ERR, "...retry after %d seconds", opt_fail_pause);
 				sleep(opt_fail_pause);
 			}
 		}
@@ -2744,10 +2775,10 @@ wait_stratum_url:
 				if ((!opt_quiet || !firstwork_time) && stratum.job.height != last_block_height) {
 					last_block_height = stratum.job.height;
 					if (net_diff > 0.)
-						applog(LOG_BLUE, "\033[1;37;45m INFO   \033[0m %s block %d, diff %.3f", algo_names[opt_algo],
+						applog(LOG_BLUE, "%s block %d, diff %.3f", algo_names[opt_algo],
 							stratum.job.height, net_diff);
 					else
-						applog(LOG_BLUE, "\033[1;37;45m INFO   \033[0m %s %s block %d", pool->short_url, algo_names[opt_algo],
+						applog(LOG_BLUE, "%s %s block %d", pool->short_url, algo_names[opt_algo],
 							stratum.job.height);
 				}
 				restart_threads();
@@ -2766,7 +2797,7 @@ wait_stratum_url:
 
 		if (!stratum_socket_full(&stratum, opt_timeout)) {
 			if (opt_debug)
-				applog(LOG_WARNING, "\033[1;37;45m INFO   \033[0m Stratum connection timed out");
+				applog(LOG_WARNING, "Stratum connection timed out");
 			s = NULL;
 		} else
 			s = stratum_recv_line(&stratum);
@@ -2777,7 +2808,7 @@ wait_stratum_url:
 		if (!s) {
 			stratum_disconnect(&stratum);
 			if (!opt_quiet && !pool_on_hold)
-				applog(LOG_WARNING, "\033[1;37;45m INFO   \033[0m Stratum connection interrupted");
+				applog(LOG_WARNING, "Stratum connection interrupted");
 			continue;
 		}
 		if (!stratum_handle_method(&stratum, s))
@@ -3654,9 +3685,16 @@ int main(int argc, char *argv[])
 	// get opt_quiet early
 	parse_single_opt('q', argc, argv);
 
-	printf("\033[22;36m ccminer CPU \033[0m  : " PACKAGE_VERSION "\n");
-	printf("Verushash v2.2 based on ccminer\n");
-	printf("                                           \n");
+	printf("***************************************************************\n");	
+	printf("*  ccminer CPU: " PACKAGE_VERSION " for Verushash v2.2 based on ccminer   *\n");
+	printf("***************************************************************\n");	
+
+        printf("Originally based on Christian Buchner and Christian H. project\n");
+        printf("Adapted to Verus by Monkins1010\n");
+        printf("Adapted for ARM optimization by Mixed-Nuts\n");
+        printf("Adapted and compiled by Oink.vrsc@\n");
+        printf("Goto https://wiki.verus.io/#!index.md for mining setup guides. \n");
+        printf("Git repo located at: " PACKAGE_URL " \n\n");
 
 	rpc_user = strdup("");
 	rpc_pass = strdup("");
@@ -3955,7 +3993,7 @@ int main(int argc, char *argv[])
 		}
 	}
 
-	applog(LOG_INFO, "\033[1;37;45m INFO   \033[0m %d miner thread%s started, "
+	applog(LOG_INFO, "%d miner thread%s started, "
 		"using '%s' algorithm.",
 		opt_n_threads, opt_n_threads > 1 ? "s":"",
 		algo_names[opt_algo]);
