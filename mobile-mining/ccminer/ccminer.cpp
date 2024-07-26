@@ -1131,37 +1131,41 @@ static bool submit_upstream_work(CURL *curl, struct work *work)
 
 /* simplified method to only get some extra infos in solo mode */
 static bool gbt_work_decode(const json_t *val, struct work *work)
-}
-
-#define GBT_CAPABILITIES "[\"coinbasetxn\", \"coinbasevalue\", \"longpoll\", \"workid\"]"
-static const char *gbt_req =
-	"{\"method\": \"getblocktemplate\", \"params\": [{"
-	//	"\"capabilities\": " GBT_CAPABILITIES ""
-	"}], \"id\":9}\r\n";
-
-static bool get_blocktemplate(CURL *curl, struct work *work)
 {
-	struct pool_infos *pool = &pools[work->pooln];
-	if (!allow_gbt)
-		return false;
-
-	int curl_err = 0;
-	json_t *val = json_rpc_call_pool(curl, pool, gbt_req, false, false, &curl_err);
-
-	if (!val && curl_err == -1) {
-		// when getblocktemplate is not supported, disable it
+	json_t *err = json_object_get(val, "error");
+	if (err && !json_is_null(err)) {
 		allow_gbt = false;
-		if (!opt_quiet) {
-				applog(LOG_BLUE, "gbt not supported, block height notices disabled");
-		}
+		applog(LOG_INFO, "GBT not supported, block height unavailable");
 		return false;
 	}
 
-	bool rc = gbt_work_decode(json_object_get(val, "result"), work);
+	if (!work->height) {
+		// complete missing data from getwork
+		json_t *key = json_object_get(val, "height");
+		if (key && json_is_integer(key)) {
+			work->height = (uint32_t) json_integer_value(key);
+			if (!opt_quiet && work->height > g_work.height) {
+				if (net_diff > 0.) {
+					char netinfo[64] = { 0 };
+					char srate[32] = { 0 };
+					sprintf(netinfo, "diff %.2f", net_diff);
+					if (net_hashrate) {
+						format_hashrate((double) net_hashrate, srate);
+						strcat(netinfo, ", net ");
+						strcat(netinfo, srate);
+					}
+					applog(LOG_BLUE, "%s block %d, %s",
+						algo_names[opt_algo], work->height, netinfo);
+				} else {
+					applog(LOG_BLUE, "%s %s block %d", short_url,
+						algo_names[opt_algo], work->height);
+				}
+				g_work.height = work->height;
+			}
+		}
+	}
 
-	json_decref(val);
-
-	return rc;
+	return true;
 }
 
 // good alternative for wallet mining, difficulty and net hashrate
