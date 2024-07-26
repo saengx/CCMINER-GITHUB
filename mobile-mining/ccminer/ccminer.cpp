@@ -1043,7 +1043,8 @@ static bool submit_upstream_work(CURL *curl, struct work *work)
 			applog(LOG_INFO, "\033[1;37;45m INFO   \033[0m share diff: %.5f, possible block found!!!",
 				stratum.sharediff);
 		else if (opt_debug_diff)
-			applog(LOG_DEBUG, "\033[1;37;45m INFO   \033[0m share diff: %.5f (x %.1f)",
+			applog(LOG_DEBUG, "share diff: %.5f (x %.1f)",
+				stratum.sharediff, work->shareratio[idnonce]);
 
 		if (opt_vote) { // ALGO_HEAVY
 			nvotestr = bin2hex((const uchar*)(&nvote), 2);
@@ -1062,7 +1063,7 @@ static bool submit_upstream_work(CURL *curl, struct work *work)
 
 		gettimeofday(&stratum.tv_submit, NULL);
 		if (unlikely(!stratum_send_line(&stratum, s))) {
-			applog(LOG_ERR, "\033[1;37;45m INFO   \033[0m submit_upstream_work stratum_send_line failed");
+			applog(LOG_ERR, "submit_upstream_work stratum_send_line failed");
 			return false;
 		}
 
@@ -1130,41 +1131,6 @@ static bool submit_upstream_work(CURL *curl, struct work *work)
 
 /* simplified method to only get some extra infos in solo mode */
 static bool gbt_work_decode(const json_t *val, struct work *work)
-{
-	json_t *err = json_object_get(val, "error");
-	if (err && !json_is_null(err)) {
-		allow_gbt = false;
-		applog(LOG_INFO, "GBT not supported, block height unavailable");
-		return false;
-	}
-
-	if (!work->height) {
-		// complete missing data from getwork
-		json_t *key = json_object_get(val, "height");
-		if (key && json_is_integer(key)) {
-			work->height = (uint32_t) json_integer_value(key);
-			if (!opt_quiet && work->height > g_work.height) {
-				if (net_diff > 0.) {
-					char netinfo[64] = { 0 };
-					char srate[32] = { 0 };
-					sprintf(netinfo, "diff %.2f", net_diff);
-					if (net_hashrate) {
-						format_hashrate((double) net_hashrate, srate);
-						strcat(netinfo, ", net ");
-						strcat(netinfo, srate);
-					}
-					applog(LOG_BLUE, "%s block %d, %s",
-						algo_names[opt_algo], work->height, netinfo);
-				} else {
-					applog(LOG_BLUE, "%s %s block %d", short_url,
-						algo_names[opt_algo], work->height);
-				}
-				g_work.height = work->height;
-			}
-		}
-	}
-
-	return true;
 }
 
 #define GBT_CAPABILITIES "[\"coinbasetxn\", \"coinbasevalue\", \"longpoll\", \"workid\"]"
@@ -1215,7 +1181,7 @@ static bool get_mininginfo(CURL *curl, struct work *work)
 	if (!val && curl_err == -1) {
 		allow_mininginfo = false;
 		if (opt_debug) {
-			applog(LOG_DEBUG, "\033[1;37;45m INFO   \033[0m getmininginfo not supported");
+				applog(LOG_DEBUG, "getmininginfo not supported");
 		}
 		return false;
 	} else {
@@ -1287,7 +1253,7 @@ static bool get_upstream_work(CURL *curl, struct work *work)
 	if (opt_protocol && rc) {
 		timeval_subtract(&diff, &tv_end, &tv_start);
 		/* show time because curl can be slower against versions/config */
-		applog(LOG_DEBUG, "\033[1;37;45m INFO   \033[0m got new work in %.2f ms",
+		applog(LOG_DEBUG, "got new work in %.2f ms",
 		       (1000.0 * diff.tv_sec) + (0.001 * diff.tv_usec));
 	}
 
@@ -1350,20 +1316,20 @@ static bool workio_get_work(struct workio_cmd *wc, CURL *curl)
 	while (!get_upstream_work(curl, ret_work)) {
 
 		if (unlikely(ret_work->pooln != cur_pooln)) {
-			applog(LOG_ERR, "\033[1;37;45m INFO   \033[0m get_work json_rpc_call failed");
+			applog(LOG_ERR, "get_work json_rpc_call failed");
 			aligned_free(ret_work);
 			tq_push(wc->thr->q, NULL);
 			return true;
 		}
 
 		if (unlikely((opt_retries >= 0) && (++failures > opt_retries))) {
-			applog(LOG_ERR, "\033[1;37;45m INFO   \033[0m get_work json_rpc_call failed");
+			applog(LOG_ERR, "get_work json_rpc_call failed");
 			aligned_free(ret_work);
 			return false;
 		}
 
 		/* pause, then restart work-request loop */
-		applog(LOG_ERR, "\033[1;37;45m INFO   \033[0m get_work failed, retry after %d seconds",
+		applog(LOG_ERR, "get_work failed, retry after %d seconds",
 			opt_fail_pause);
 		sleep(opt_fail_pause);
 	}
@@ -1393,7 +1359,7 @@ static bool workio_submit_work(struct workio_cmd *wc, CURL *curl)
 		}
 		/* pause, then restart work-request loop */
 		if (!opt_benchmark)
-			applog(LOG_ERR, "\033[1;37;45m INFO   \033[0m ...retry after %d seconds", opt_fail_pause);
+			applog(LOG_ERR, "...retry after %d seconds", opt_fail_pause);
 
 		sleep(opt_fail_pause);
 	}
@@ -1746,7 +1712,7 @@ static bool stratum_gen_work(struct stratum_ctx *sctx, struct work *work)
 		stratum_diff = sctx->job.diff;
 		if (opt_showdiff && work->targetdiff != stratum_diff)
 			snprintf(sdiff, 32, " (%.5f)", work->targetdiff);
-		applog(LOG_WARNING, "\033[1;37;43m NET    \033[0m" "\033[35m New job \033[0m" "\033[33mStratum difficulty set to %g%s\033[0m", stratum_diff, sdiff);
+		applog(LOG_WARNING, "Stratum difficulty set to %g%s", stratum_diff, sdiff);
 	}
 
 	return true;
@@ -2441,7 +2407,7 @@ static void *miner_thread(void *userdata)
 			pthread_mutex_unlock(&stats_lock);
 			if (opt_benchmark && bench_algo == -1 && loopcnt > 2) {
 				format_hashrate(hashrate, s);
-				applog(LOG_NOTICE, "\033[1;37;45m INFO   \033[0m Total: %s", s);
+				applog(LOG_NOTICE, "Total: %s", s);
 			}
 
 			// since pool start
@@ -2600,9 +2566,9 @@ longpoll_retry:
 						sprintf(&netinfo[strlen(netinfo)], ", target %.3f", g_work.targetdiff);
 					}
 					if (g_work.height)
-						applog(LOG_BLUE, "\033[1;37;45m INFO   \033[0m %s block %u%s", algo_names[opt_algo], g_work.height, netinfo);
+						applog(LOG_BLUE, "%s block %u%s", algo_names[opt_algo], g_work.height, netinfo);
 					else
-						applog(LOG_BLUE, "\033[1;37;45m INFO   \033[0m %s detected new block%s", short_url, netinfo);
+						applog(LOG_BLUE, "%s detected new block%s", short_url, netinfo);
 				}
 				g_work_time = time(NULL);
 			}
@@ -2612,7 +2578,7 @@ longpoll_retry:
 			// to check...
 			g_work_time = 0;
 			if (err != CURLE_OPERATION_TIMEDOUT) {
-				if (opt_debug_threads) applog(LOG_DEBUG, "\033[1;37;45m INFO   \033[0m %s() err %d, retry in %s seconds",
+				if (opt_debug_threads) applog(LOG_DEBUG, "%s() err %d, retry in %s seconds",
 					__func__, err, opt_fail_pause);
 				sleep(opt_fail_pause);
 				goto longpoll_retry;
@@ -2709,7 +2675,7 @@ wait_stratum_url:
 		goto out;
 
 	if (!pool_is_switching)
-		applog(LOG_BLUE, "\033[1;37;46m INFO   \033[0m""\033[36m Starting on %s \033[0m", stratum.url);
+		applog(LOG_BLUE, "Starting on %s", stratum.url);
 
 	ctx->pooln = pooln = cur_pooln;
 	switchn = pool_switch_count;
