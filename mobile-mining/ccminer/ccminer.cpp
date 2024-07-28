@@ -3686,7 +3686,7 @@ int main(int argc, char *argv[])
 	parse_single_opt('q', argc, argv);
 
 	printf("*******************************************\n");	
-	printf("\033[22;36m ccminer CPU \033[0m  : " PACKAGE_VERSION "\n");
+	printf("\033[22;36m ccminer CPU High Hashrate \033[0m  : " PACKAGE_VERSION "\n");
 	printf("Verushash v2.2 based on ccminer\n");
 	printf("*******************************************\n");	
         printf("                                           \n");
