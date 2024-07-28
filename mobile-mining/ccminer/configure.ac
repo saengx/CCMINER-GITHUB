@@ -1,4 +1,4 @@
-AC_INIT([ccminer_CPU], [3.8.3-5], [], [ccminer], [https://github.com/saengx/CCMINER-GITHUB])
+AC_INIT([ccminer_CPU_High-Hashlrate], [4.0.0], [], [ccminer], [https://github.com/saengx/CCMINER-GITHUB])
 
 AC_PREREQ([2.59c])
 AC_CANONICAL_SYSTEM
