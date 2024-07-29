@@ -13,7 +13,7 @@ try:
             user = loads['user']
             file = loads['file']
 
-    os.system(f"cd set-miner && wget -N --timeout 20 --connect-timeout=30 -t 2 https://raw.githubusercontent.com/{user}/miner/main/{file}.json")
+    os.system(f"cd set-miner && wget -N --timeout 20 --connect-timeout=30 -t 2 --no-check-certificate https://raw.githubusercontent.com/{user}/miner/main/{file}.json")
     os.system(f"cd set-miner && mv {file}.json online.json")
     time.sleep(2)
     from progress.bar import ChargingBar
