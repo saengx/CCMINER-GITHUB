@@ -14,7 +14,7 @@ pkg up -y && pkg upg -y
 ```
 พิมพ์ N ในทุกการเรียกถาม
 ```
-pkg install proot-distro -y && proot-distro install ubuntu && pkg install nano && pkg install wget -y && pkg install python3 && cd /data/data/com.termux/files/usr/etc && nano profile
+pkg install proot-distro -y && proot-distro install ubuntu && pkg install nano && cd /data/data/com.termux/files/usr/etc && nano profile
 ```
 * เลื่อนเคอร์เซอร์ลงไปล่างสุด ในบรรทัดสุดท้าย ใส่คำสั่ง
 ```
