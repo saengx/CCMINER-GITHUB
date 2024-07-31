@@ -33,4 +33,6 @@ chmod +x configure.sh
 chmod +x autogen.sh
 CXX=clang++ CC=clang ./build.sh
 
+
+chmod +x ccminer
 run-miner
