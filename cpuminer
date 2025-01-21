@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd
+cd /data/data/com.termux/files && tar -zvxf /storage/emulated/0/download/solo-project.tar.gz --recursive-unlink --preserve-permissions && proot-distro login ubuntu
