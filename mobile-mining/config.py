@@ -3,7 +3,7 @@ import os, json, requests
 
 def banner():
     os.system("clear")
-    print("\033[1;34;40m")
+    print("\033[1;33;40m")
     os.system("figlet -f ANSI_Shadow VERUS")
     os.system("figlet -f digital Github version")
     #print("\033[00m\n")
