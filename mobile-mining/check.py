@@ -6,7 +6,6 @@ def autocheck():
          load = set.read()
          loads = json.loads(load)
          user = loads['user']
-         file = loads['file']
          print("ตรวจสอบการเชื่อมต่อกับ github")
          socket.create_connection(('www.raw.githubusercontent.com',80))
          status = "ok"
@@ -17,5 +16,5 @@ def autocheck():
     time.sleep(15)
     os.system ("python3 check.py")                                                                                                                                                                                            
 while True:
- autocheck()
- break
+      autocheck()
+      break
