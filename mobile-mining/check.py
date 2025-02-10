@@ -2,6 +2,11 @@ import os, time
 import socket
 def autocheck():
  try:
+    with open("setip/ip.json", encoding="utf-8") as set:
+            load = set.read()
+            loads = json.loads(load)
+            user = loads['user']
+            file = loads['file']
     print("ตรวจสอบการเชื่อมต่อ internet")
     socket.create_connection(('www.raw.githubusercontent.com',80))
     status = "ok"
