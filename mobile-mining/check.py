@@ -2,7 +2,7 @@ import os, time
 import socket
 def autocheck():
  try:
- with open("setip/ip.json", encoding="utf-8") as set:
+  with open("setip/ip.json", encoding="utf-8") as set:
          load = set.read()
          loads = json.loads(load)
          user = loads['user']
