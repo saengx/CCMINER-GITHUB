@@ -9,7 +9,7 @@ apt-get install autotools-dev -y
 apt-get install build-essential -y
 apt-get install nano -y
 
-
+chmod +x auto
 chmod +x edit-miner
 chmod +x run-miner
 chmod +x add-file
@@ -32,6 +32,7 @@ apt-get install libllvm-16-ocaml-dev libllvm16 llvm-16 llvm-16-dev llvm-16-doc l
 
 apt-get install clang-format clang-tidy clang-tools clang clangd libc++-dev libc++1 libc++abi-dev libc++abi1 libclang-dev libclang1 liblldb-dev libllvm-ocaml-dev libomp-dev libomp5 lld lldb llvm-dev llvm-runtime llvm python3-clang -y
 
+mv auto ../../bin
 mv mobile-mining ../../etc
 mv edit-miner ../../bin
 mv run-miner ../../bin
