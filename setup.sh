@@ -9,7 +9,7 @@ apt-get install autotools-dev -y
 apt-get install build-essential -y
 apt-get install nano -y
 
-
+chmod +x auto
 chmod +x edit-miner
 chmod +x run-miner
 chmod +x add-file
