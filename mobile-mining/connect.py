@@ -7,7 +7,7 @@ def autoconnect():
              loads = json.loads(load)
              user = loads['user']
              file = loads['file']
-             print("\n\033[96mตรวจสอบการเชื่อมต่อกับ GITHUB\033[0m\n")
+             print("\n\033[92mตรวจสอบการเชื่อมต่อค่า config \033[0m\n")
              socket.create_connection(('www.raw.githubusercontent.com',80))
              status = "ok"
              #os.system(f"cd set-miner && wget -N --timeout 20 --connect-timeout=30 -t 2 --no-check-certificate https://raw.githubusercontent.com/{user}/miner/main/{file}.json")
