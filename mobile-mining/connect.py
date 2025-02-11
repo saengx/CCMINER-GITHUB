@@ -17,5 +17,5 @@ def autoconnect():
     time.sleep(15)
     os.system ("python3 connect.py")                                                                                                                                                                                            
 while True:
-      autocheck()
+      autoconnect()
       break
