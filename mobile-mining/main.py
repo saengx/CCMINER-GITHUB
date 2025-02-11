@@ -3,7 +3,7 @@ import json
 import time
 import pip
 from config import banner
-from check import autocheck
+from connect import autoconnect
 
 # check import module
 try:
