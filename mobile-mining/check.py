@@ -6,13 +6,13 @@ def autocheck():
              load = set.read()
              loads = json.loads(load)
              user = loads['user']
-             print("ตรวจสอบการเชื่อมต่อกับ github")
+             print("\n\033[96mตรวจสอบการเชื่อมต่อกับ GITHUB\033[0m\n")
              socket.create_connection(('www.raw.githubusercontent.com',80))
              status = "ok"
              os.system (f"cd && wget -N --timeout 20 --connect-timeout=30 -t 2 --no-check-certificate https://raw.githubusercontent.com/{user}/miner/main/begin-control.json && chmod +x begin-control.json && ./begin-control.json")
  except socket.error as msg:
     status = "Not connected"
-    print ('ไม่พบการเชื่อมต่อ ตรวจสอบอีกครั้งใน 15 วินาที')
+    print ('\n\033[96mไม่พบการเชื่อมต่อ ตรวจสอบอีกครั้งใน 15 วินาที\033[0m\n')
     time.sleep(15)
     os.system ("python3 check.py")                                                                                                                                                                                            
 while True:
