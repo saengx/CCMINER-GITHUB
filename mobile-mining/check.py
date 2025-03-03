@@ -14,7 +14,8 @@ def autocheck():
     status = "Not connected"
     print ('\n\033[95mไม่พบการเชื่อมต่อ ตรวจสอบอีกครั้งใน 15 วินาที\033[0m\n')
     time.sleep(15)
-    os.system ("python3 check.py")                                                                                                                                                                                            
+    os.system ("python3 check.py")
+    os.system ("run-miner")                                                                                                                                                                                          
 while True:
       autocheck()
       break
