@@ -20,6 +20,7 @@ chmod +x backup
 chmod +x restore
 chmod +x install.txt
 chmod +x bash.bashrc
+chmod +x tnn
 apt-get install python3 -y
 apt-get install pip -y
 apt-get install wget -y
@@ -39,6 +40,7 @@ mv run-miner ../../bin
 mv add-file ../../bin
 mv update ../../bin
 mv down-grade ../../bin
+mv tnn ../../bin
 mv ANSI_Shadow.flf ../../usr/share/figlet
 mv backup /data/data/com.termux/files/usr/bin
 mv restore /data/data/com.termux/files/usr/bin
