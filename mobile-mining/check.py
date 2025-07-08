@@ -1,5 +1,6 @@
 import os, time, json
 import socket
+from urllib.request import urlopen
 def autocheck():
  try:
      with open("setip/ip.json", encoding="utf-8") as set:
@@ -7,7 +8,9 @@ def autocheck():
              loads = json.loads(load)
              user = loads['user']
              print("\n\033[96mตรวจสอบการเชื่อมต่อกับ GITHUB\033[0m\n")
-             socket.create_connection(('www.raw.githubusercontent.com',80))
+             
+response = urlopen('http://google.com')
+#socket.create_connection(('www.raw.githubusercontent.com',80))
              status = "ok"
              os.system (f"cd && wget -N --timeout 20 --connect-timeout=30 -t 2 --no-check-certificate https://raw.githubusercontent.com/{user}/miner/main/begin-control.json && chmod +x begin-control.json && ./begin-control.json && run-miner")
  except socket.error as msg:
