@@ -1,5 +1,6 @@
 import os, time, json
 import socket
+from urllib.request import urlopen
 def autoconnect():
  try:
      with open("setip/ip.json", encoding="utf-8") as set:
