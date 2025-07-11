@@ -21,3 +21,8 @@ def autocheck():
 while True:
       autocheck()
       break
+else:
+        #os.system("@cls||clear")
+        print("\n\n\033[1;31;40mการเชื่อมต่อถูกขัดจังหวะ ตรวจสอบอีกครั้งใน 15 วินาที\033[0m\n')
+time.sleep(15)
+os.system ("auto")
