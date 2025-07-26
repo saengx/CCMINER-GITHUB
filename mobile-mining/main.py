@@ -24,7 +24,7 @@ except ImportError:
 try:
     import requests
 except ImportError:
-    pip.main(['install', '--user', 'requests'])
+    pip3.main(['install', '--user', 'requests'])
     import requests
     
     
