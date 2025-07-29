@@ -83,7 +83,8 @@ def runOffline():
          
          os.system(f"python3 cpu.py")
          #time.sleep(2)
-         os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password} -t {cpu} --cpu-affinity 0 --cpu-priority 1 --api-allow=192.168.1.0/24")
+         os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password} -t {cpu}")
+         #os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password} -t {cpu} --cpu-affinity 0 --cpu-priority 1 --api-allow=192.168.1.0/24")
     except:
         push = {'pool': '','wallet': '','pass': ''}
         with open("set-miner/{'file'}.json", "w") as set:
