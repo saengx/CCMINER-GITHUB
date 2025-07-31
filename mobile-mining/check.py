@@ -11,11 +11,11 @@ def autocheck():
              output_filename = "start"
              response = requests.get (url, stream=True)
              response.raise_for_status()  # ยกเลิกหากเกิดข้อผิดพลาดในการดาวน์โหลด
-     except requests.exceptions.RequestException as e:
+ except requests.exceptions.RequestException as e:
         print ('\n\033[95mไม่พบการเชื่อมต่อ ตรวจสอบอีกครั้งใน 15 วินาที\033[0m\n')
         time.sleep(15)
-        os.system ("python3 check.py")    
-      while True:
+        os.system ("python3 check.py")      
+ while True:
       autocheck()
       os.system ("start")
       break    
