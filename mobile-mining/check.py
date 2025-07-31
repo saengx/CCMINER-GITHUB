@@ -1,8 +1,11 @@
 import os, time, json
 import socket
+import requests
 from urllib.request import urlopen
 def autocheck():
  try:
+     response = requests.get(url, stream=True)
+        response.raise_for_status()  # ยกเลิกหากเกิดข้อผิดพลาดในการดาวน์โหลด
      with open("setip/ip.json", encoding="utf-8") as set:
              load = set.read()
              loads = json.loads(load)
