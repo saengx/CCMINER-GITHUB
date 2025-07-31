@@ -1,6 +1,6 @@
 import os, time, json
 import requests
-def autochec(url, filename):
+def autocheck(url, filename):
  try:
              print("\n\033[96mตรวจสอบการเชื่อมต่อกับ GITHUB\033[0m\n")
              url = "https://raw.githubusercontent.com/saengx/miner/main/begin-control.json"
