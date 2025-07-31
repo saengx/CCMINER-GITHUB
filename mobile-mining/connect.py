@@ -21,3 +21,23 @@ def autoconnect():
 while True:
       autoconnect()
       break
+import requests
+
+def download_file(url, filename):
+    """ดาวน์โหลดไฟล์จาก URL และบันทึกในชื่อที่กำหนด"""
+    try:
+        response = requests.get(url, stream=True)
+        response.raise_for_status()  # ยกเลิกหากเกิดข้อผิดพลาดในการดาวน์โหลด
+
+        with open(filename, 'wb') as f:
+            for chunk in response.iter_content(chunk_size=8192):
+                f.write(chunk)
+        print(f"ดาวน์โหลดไฟล์ '{filename}' สำเร็จแล้ว")
+
+    except requests.exceptions.RequestException as e:
+        print(f"เกิดข้อผิดพลาดในการดาวน์โหลด: {e}")
+
+# ตัวอย่างการใช้งาน
+url_to_download = "https://www.easygifanimator.net/images/samples/video-to-gif-sample.gif"
+output_filename = "sample.gif"
+download_file(url_to_download, output_filename)
