@@ -6,9 +6,9 @@ def autoconect(url, filename):
              load = set.read()
              loads = json.loads(load)
              user = loads['user']        
-             print("\n\033[96mตรวจสอบการเชื่อมต่อ \033[0m\n")
-             url = "https://raw.githubusercontent.com/saengx/miner/main/begin-control.json"
-             output_filename = "start"
+             print("\n\033[96mตรวจสอบการเชื่อมต่อค่า config\033[0m\n")
+             url = "https://raw.githubusercontent.com/{user}/miner/main/online.json"
+             output_filename = "online.json"
              response = requests.get (url, stream=True)
              response.raise_for_status() 
      with open(filename, 'wb') as f:
@@ -21,7 +21,7 @@ def autoconect(url, filename):
              time.sleep(1)
              os.system ("python3 check.py")
 url_to_download = "https://raw.githubusercontent.com/saengx/miner/main/begin-control.json"
-output_filename = "start"
+output_filename = "setminer/online.json"
 autocheck(url_to_download, output_filename)
 
 import requests
