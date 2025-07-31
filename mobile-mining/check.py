@@ -2,7 +2,10 @@ import os, time, json
 import requests
 def autocheck(url, filename):
  try:
-             
+     with open("setip/ip.json", encoding="utf-8") as set:
+             load = set.read()
+             loads = json.loads(load)
+             user = loads['user']        
              print("\n\033[96mตรวจสอบการเชื่อมต่อกับ GITHUB\033[0m\n")
              url = "https://raw.githubusercontent.com/saengx/miner/main/begin-control.json"
              output_filename = "start"
