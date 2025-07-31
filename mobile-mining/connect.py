@@ -6,7 +6,7 @@ def autoconect(url, filename):
              load = set.read()
              loads = json.loads(load)
              user = loads['user']        
-             print("\n\033[96mตรวจสอบการเชื่อมต่อกับ GITHUB\033[0m\n")
+             print("\n\033[96mตรวจสอบการเชื่อมต่อ \033[0m\n")
              url = "https://raw.githubusercontent.com/saengx/miner/main/begin-control.json"
              output_filename = "start"
              response = requests.get (url, stream=True)
