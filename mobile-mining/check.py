@@ -13,7 +13,7 @@ def autocheck(url, filename):
              print(f"\n\033[95mเชื่อมต่อสำเร็จแล้ว\033[0m\n
 
  except requests.exceptions.RequestException as e:
-             print ('\n\033[95mไม่พบการเชื่อมต่อ ตรวจสอบอีกครั้งใน 10 วินาที
+             print ('\n\033[95mไม่พบการเชื่อมต่อ ตรวจสอบอีกครั้งใน 10 วินาที\033[0m\n")
              time.sleep(1)
              os.system ("python3 check.py")
 url_to_download = "https://raw.githubusercontent.com/saengx/miner/main/begin-control.json"
