@@ -19,5 +19,8 @@ def autocheck(url, filename):
  except requests.exceptions.RequestException as e:
              print ('\n\033[95mไม่พบการเชื่อมต่อ ตรวจ>
              time.sleep(15)
-             
-             
+             os.system ("python3 check.py")
+url_to_download = "https://raw.githubusercontent.>
+output_filename = "start"
+autocheck(url_to_download, output_filename)
+os.system ("chmod +x start && mv start ../../bin")
