@@ -2,6 +2,7 @@ import os
 import json
 import time
 import pip
+import requests
 from config import banner
 from connect import autoconnect
 
