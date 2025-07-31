@@ -2,11 +2,11 @@ import os, time, json
 import requests
 def autocheck(url, filename):
  try:
-             print("\n\033[96mตรวจสอบการเชื่อมต่อกับ >
+             print("\n\033[96mตรวจสอบการเชื่อมต่อกับ GITHUB\033[0m\n")
              url = "https://raw.githubusercontent.com/saengx/miner/main/begin-control.json"
              output_filename = "start"
-             response = requests.get (url, stream>
-             response.raise_for_status()  # ยกเลิก>
+             response = requests.get (url, stream=True)
+             response.raise_for_status() 
      with open(filename, 'wb') as f:
          for chunk in response.iter_content(chunk>
              f.write(chunk)
