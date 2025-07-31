@@ -1,23 +1,23 @@
 import os, time, json
 import requests
-def autocheck():
+def autocheck(url, filename):
  try:
-     with open("setip/ip.json", encoding="utf-8") as set:
+     with open("setip/ip.json", encoding="utf-8")>
              load = set.read()
              loads = json.loads(load)
              user = loads['user']
-             print("\n\033[96mตรวจสอบการเชื่อมต่อกับ GITHUB\033[0m\n")
-             url = "https://raw.githubusercontent.com/{user}/miner/main/begin-control.json"
+             print("\n\033[96mตรวจสอบการเชื่อมต่อกับ >
+             url = "https://raw.githubusercontent>
              output_filename = "start"
-             response = requests.get (url, stream=True)
-             response.raise_for_status()  # ยกเลิกหากเกิดข้อผิดพลาดในการดาวน์โหลด
+             response = requests.get (url, stream>
+             response.raise_for_status()  # ยกเลิก>
+     with open(filename, 'wb') as f:
+         for chunk in response.iter_content(chunk>
+             f.write(chunk)
+             print(f"\n\033[95mเชื่อมต่อสำเร็จแล้ว\033>
+
  except requests.exceptions.RequestException as e:
-             print ('\n\033[95mไม่พบการเชื่อมต่อ ตรวจสอบอีกครั้งใน 15 วินาที\033[0m\n')
+             print ('\n\033[95mไม่พบการเชื่อมต่อ ตรวจ>
              time.sleep(15)
-             os.system ("python3 check.py")      
- while True:
-      autocheck()
-      os.system ("start")
-      break    
              
              
