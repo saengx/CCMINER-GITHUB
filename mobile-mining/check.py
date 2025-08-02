@@ -2,7 +2,7 @@ import os, time
 import requests
 url = "https://raw.githubusercontent.com/saengx/miner/main/begin-control.json"
 local_filename = "start"
- try:
+try:
      response = requests.get (url, stream=True)
      response.raise_for_status() 
      with open(filename, 'wb') as f:
@@ -15,4 +15,3 @@ local_filename = "start"
              print ("\n\033[95mไม่พบการเชื่อมต่อ ตรวจสอบอีกครั้งใน 10 วินาที\033[0m\n")
              time.sleep(1)
              os.system ("python3 check.py")
-
