@@ -6,7 +6,7 @@ def download_file(url, save_path):
         response.raise_for_status() 
         with open(save_path, 'wb') as file:
             for chunk in response.iter_content(chunk_size=8192):
-                f.write(chunk)
+                file.write(chunk)
         print("\033[93mเชื่อมต่อสำเร็จแล้ว\033[0m")
         os.system ("chmod +x start && mv start ../../bin")
         os.system ("python3 connect.py")
