@@ -1,0 +1,3 @@
+#!/bin/bash
+cd ../usr/etc/miner
+python3 set.py
