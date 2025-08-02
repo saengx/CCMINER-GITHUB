@@ -97,7 +97,7 @@ def runOffline():
          os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password} -t {cpu} --cpu-priority {cpupriority} --api-allow={apiallow} --api-bind={apibind}")
     except:
         push = {'pool': '','wallet': '','pass': ''}
-        with open("set-miner/{'file'}.json", "w") as set:
+        with open("set-miner/online.json", "w") as set:
             json.dump(push, set, indent=4)
         push = {'name': '','cpu': ''}
         with open("set-miner/offline.json", "w") as set:
