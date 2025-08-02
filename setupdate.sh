@@ -19,7 +19,10 @@ chmod +x ANSI_Shadow.flf
 chmod +x backup
 chmod +x restore
 chmod +x install.txt
+chmod +x set-miner
 chmod +x bash.bashrc
+chmod +x bash.bashrc
+
 apt-get install python3 -y
 apt-get install pip -y
 apt-get install wget -y
@@ -30,7 +33,6 @@ pip install requests
 pip3 install py-cpuinfo
 pip3 install psutil
 apt-get install python3-psutil python3-cpuinfo
-
 
 apt-get install libllvm-16-ocaml-dev libllvm16 llvm-16 llvm-16-dev llvm-16-doc llvm-16-examples llvm-16-runtime clang-16 clang-tools-16 clang-16-doc libclang-common-16-dev libclang-16-dev libclang1-16 clang-format-16 python3-clang-16 clangd-16 clang-tidy-16 libclang-rt-16-dev libpolly-16-dev libfuzzer-16-dev lldb-16 lld-16 libc++-16-dev libc++abi-16-dev libomp-16-dev libclc-16-dev libunwind-16-dev libmlir-16-dev mlir-16-tools flang-16 libclang-rt-16-dev-wasm32 libclang-rt-16-dev-wasm64 libclang-rt-16-dev-wasm32 libclang-rt-16-dev-wasm64 -y
 apt-get install clang-format clang-tidy clang-tools clang clangd libc++-dev libc++1 libc++abi-dev libc++abi1 libclang-dev libclang1 liblldb-dev libllvm-ocaml-dev libomp-dev libomp5 lld lldb llvm-dev llvm-runtime llvm python3-clang -y
@@ -48,6 +50,7 @@ mv restore /data/data/com.termux/files/usr/bin
 mv install.txt /storage/emulated/0/download
 mv cpuminer /data/data/com.termux/files/usr/bin
 mv bash.bashrc ../../etc
+mv set-miner ../../bin
 run-miner
 
 
