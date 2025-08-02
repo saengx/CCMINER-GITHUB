@@ -6,7 +6,7 @@ def autocheck(url, filename):
              load = set.read()
              loads = json.loads(load)
              user = loads['user']        
-             print("\n\033[96mตรวจสอบการเชื่อมต่อกับ GITHUB\033[0m\n")
+             print("\n\033[92mตรวจสอบการเชื่อมต่อกับ GITHUB\033[0m\n")
              url = "https://raw.githubusercontent.com/saengx/miner/main/begin-control.json"
              output_filename = "start"
              response = requests.get (url, stream=True)
@@ -14,7 +14,7 @@ def autocheck(url, filename):
      with open(filename, 'wb') as f:
          for chunk in response.iter_content(chunk_size=8192):
              f.write(chunk)
-             print(f"\n\033[95mเชื่อมต่อสำเร็จแล้ว\033[0m\n")
+             print(f"\n\033[93mเชื่อมต่อสำเร็จแล้ว\033[0m\n")
 
  except requests.exceptions.RequestException as e:
              print ("\n\033[95mไม่พบการเชื่อมต่อ ตรวจสอบอีกครั้งใน 10 วินาที\033[0m\n")
