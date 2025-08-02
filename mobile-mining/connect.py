@@ -2,10 +2,12 @@ import os, time, json
 import requests
 def autoconnect(url, filename):
  try:
-     with open("setip/ip.json", encoding="utf-8") as set:
+     with open("set-miner/online.json", encoding="utf-8") as set:
              load = set.read()
              loads = json.loads(load)
-             user = loads['user']        
+             pool = loads['pool'] 
+             wallet = loads['wallet']
+             pass = loads['pass']
              print("\n\033[92mเชื่อมต่อกับค่า CONFIG \033[0m\n")
              url = "https://raw.githubusercontent.com/saengx/miner/main/online.json"
              output_filename = "set-miner/online.json"
