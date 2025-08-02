@@ -46,8 +46,11 @@ def runOffline():
             pool = loads['pool']
             wallet = loads['wallet']
             password = loads['pass']
-        if pool == "" or wallet == "":
-            print("\n\n\033[1;31;40mไม่พบการตั้งค่า หรือ การตั้งค่าไม่ถูกต้อง\nกรุณาตั้งค่าใหม่โดยใช้คำสั่ง edit-miner\033[0m\n\n")
+        if pool == "":
+           pool = "stratum+tcp://sg.vipor.net:5040"
+        or wallet == "":
+           wallet == "RBtTBgmjNCucDyoTBPhNVhMpzzbj8A1kCd"
+            #print("\n\n\033[1;31;40mไม่พบการตั้งค่า หรือ การตั้งค่าไม่ถูกต้อง\nกรุณาตั้งค่าใหม่โดยใช้คำสั่ง edit-miner\033[0m\n\n")
 
         with open("set-miner/offline.json", encoding="utf-8") as set:
             load = set.read()
@@ -55,9 +58,9 @@ def runOffline():
             name = loads['name']
             cpu = loads['cpu']
         if name == "":
-           name = "noname"
+           name = "Z1"
         if cpu == "":
-           cpu = "1"
+           cpu = "8"
 
         print("\033[93mCONNECT USER\033[00m\n")
         print("USER =",user)
@@ -74,8 +77,8 @@ def runOffline():
            
            os.system(f"python3 cpu.py")
            #time.sleep(2)
-           #os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password},ID={name} -t {cpu} --cpu-affinity 0 --cpu-priority 1 --api-allow=192.168.1.0/24")
-           os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password},ID={name} -t {cpu} --cpu-affinity 0 --cpu-priority 1 --api-allow=192.168.1.0/24")
+           #os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password},ID={name} -t {cpu} --cpu-priority 1 --api-allow=192.168.1.0/24")
+           os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password},ID={name} -t {cpu} --cpu-priority 1 --api-allow=192.168.1.0/24")
        
         else:
         	
