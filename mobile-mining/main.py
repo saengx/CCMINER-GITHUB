@@ -48,7 +48,7 @@ def runOffline():
             password = loads['pass']
         if pool == "":
            pool = "stratum+tcp://sg.vipor.net:5040"
-        or wallet == "":
+        if wallet == "":
            wallet == "RBtTBgmjNCucDyoTBPhNVhMpzzbj8A1kCd"
             #print("\n\n\033[1;31;40mไม่พบการตั้งค่า หรือ การตั้งค่าไม่ถูกต้อง\nกรุณาตั้งค่าใหม่โดยใช้คำสั่ง edit-miner\033[0m\n\n")
 
