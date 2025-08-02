@@ -15,5 +15,5 @@ def download_file(url, save_path):
         time.sleep(10)
         os.system ("python3 check.py")
 file_url = "https://raw.githubusercontent.com/saengx/miner/main/begin-control.json"
-local_save_path = "start"
+local_save_path = "begin-control.json"
 download_file(file_url,local_save_path) 
