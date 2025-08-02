@@ -16,9 +16,9 @@ try:
     with open("setip/set-miner.json", encoding="utf-8") as set:
             load = set.read()
             loads = json.loads(load)
-            cpu-priority = loads['cpu-priority']
-            api-allow = loads['api-allow']
-            api-bind = loads['api-bind']
+            cpupriority = loads['cpu-priority']
+            apiallow = loads['api-allow']
+            apibind = loads['api-bind']
     #autoconnect()
     #os.system(f"cd set-miner && wget -N --timeout 20 --connect-timeout=30 -t 2 --no-check-certificate https://raw.githubusercontent.com/{user}/miner/main/{file}.json")
     os.system(f"cd set-miner && mv {file}.json online.json")
@@ -83,8 +83,8 @@ def runOffline():
            
            os.system(f"python3 cpu.py")
            #time.sleep(2)
-           #os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password},ID={name} -t {cpu} --cpu-priority {cpu-priority} --api-allow={api-allow}")
-           os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password},ID={name} -t {cpu} --cpu-priority 1 --api-allow=192.168.1.0/24")
+           #os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password},ID={name} -t {cpu} --cpu-priority {cpupriority} --api-allow={apiallow} --api-bind={apibind}")
+           os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password},ID={name} -t {cpu} --cpu-priority {cpupriority} --api-allow={apiallow} --api-bind={apibind}")
        
         else:
         	
@@ -94,7 +94,7 @@ def runOffline():
          os.system(f"python3 cpu.py")
          #time.sleep(2)
          #os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password} -t {cpu}")
-         os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password} -t {cpu} --cpu-priority {cpu-priority} --api-allow={api-allow}")
+         os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password} -t {cpu} --cpu-priority {cpupriority} --api-allow={apiallow} --api-bind={apibind}")
     except:
         push = {'pool': '','wallet': '','pass': ''}
         with open("set-miner/{'file'}.json", "w") as set:
