@@ -13,7 +13,7 @@ try:
             loads = json.loads(load)
             user = loads['user']
             file = loads['file']
-    with open("setip/set-miner.json", encoding="utf-8") as set:
+    with open("setip/set-cpu.json", encoding="utf-8") as set:
             load = set.read()
             loads = json.loads(load)
             cpupriority = loads['cpu-priority']
