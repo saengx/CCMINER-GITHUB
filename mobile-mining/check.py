@@ -5,7 +5,7 @@ local_filename = "start"
 try:
     response = requests.get (url, stream=True)
     response.raise_for_status() 
-    with open(start, 'wb') as f:
+    with open(local_filename, 'wb') as f:
         for chunk in response.iter_content(chunk_size=8192):
             f.write(chunk)
     print("\033[93mเชื่อมต่อสำเร็จแล้ว\033[0m")
