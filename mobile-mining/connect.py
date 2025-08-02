@@ -7,7 +7,7 @@ def autoconect(url, filename):
              loads = json.loads(load)
              user = loads['user']        
              print("\n\033[96mตรวจสอบการเชื่อมต่อค่า config\033[0m\n")
-             url = "https://raw.githubusercontent.com/{user}/miner/main/online.json"
+             url = "https://raw.githubusercontent.com/saengx/miner/main/online.json"
              output_filename = "online.json"
              response = requests.get (url, stream=True)
              response.raise_for_status() 
