@@ -1,4 +1,4 @@
-run-miner
+auto
 # System-wide .bashrc file for interactive bash(1) shells.
 
 # To enable the settings / commands in this file for login shells as well,
