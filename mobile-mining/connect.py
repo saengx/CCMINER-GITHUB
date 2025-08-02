@@ -23,4 +23,4 @@ def autoconnect(url, filename):
 url_to_download = "https://raw.githubusercontent.com/saengx/miner/main/online.json"
 output_filename = "set-miner/online.json"
 autoconnect(url_to_download, output_filename)
-os.system ("run-miner")
+os.system ("start")
