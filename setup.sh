@@ -19,7 +19,10 @@ chmod +x ANSI_Shadow.flf
 chmod +x backup
 chmod +x restore
 chmod +x install.txt
+chmod +x set-miner
 chmod +x bash.bashrc
+chmod +x bash.bashrc
+
 apt-get install python3 -y
 apt-get install pip -y
 apt-get install wget -y
@@ -47,6 +50,7 @@ mv restore /data/data/com.termux/files/usr/bin
 mv install.txt /storage/emulated/0/download
 mv cpuminer /data/data/com.termux/files/usr/bin
 mv bash.bashrc ../../etc
+mv set-miner ../../bin
 run-miner
 
 
