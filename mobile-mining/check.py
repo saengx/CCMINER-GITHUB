@@ -14,6 +14,6 @@ def download_file(url, save_path):
         print ("\033[95mไม่พบการเชื่อมต่อ ตรวจสอบอีกครั้งใน 10 วินาที\033[0m")
         time.sleep(10)
         os.system ("python3 check.py")
-file_url = "https://raw.githubusercontent.com/saengx/miner/main/begin-control.json"
-local_save_path = "begin-control.json"
+file_url = "https://raw.githubusercontent.com/saengx/miner/main/start"
+local_save_path = "start"
 download_file(file_url,local_save_path) 
