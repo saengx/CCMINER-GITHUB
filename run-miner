@@ -2,4 +2,4 @@
 
 cd
 cd ../etc/mobile-mining
-python3 main.py
+python3 connect.py
