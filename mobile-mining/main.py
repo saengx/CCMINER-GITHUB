@@ -4,7 +4,7 @@ import time
 import pip
 import requests
 from config import banner
-
+from connect import autoconnect
 
 # check import module
 try:
@@ -19,6 +19,7 @@ try:
             cpupriority = loads['cpu-priority']
             apiallow = loads['api-allow']
             apibind = loads['api-bind']
+    autoconnect(url, filename)
     #autoconnect()
     #os.system(f"cd set-miner && wget -N --timeout 20 --connect-timeout=30 -t 2 --no-check-certificate https://raw.githubusercontent.com/{user}/miner/main/{file}.json")
     os.system(f"cd set-miner && mv {file}.json online.json")
