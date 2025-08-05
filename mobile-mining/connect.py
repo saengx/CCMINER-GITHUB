@@ -16,7 +16,10 @@ def autoconnect(url, filename):
      with open(filename, 'wb') as f:
          for chunk in response.iter_content(chunk_size=8192):
              f.write(chunk)
-             print(f"\n\033[93mเชื่อมต่อสำเร็จแล้ว\033[0m\n")
+             #print(f"\n\033[93mเชื่อมต่อสำเร็จแล้ว\033[0m\n")
+             print("\033[1;32;40m")
+             os.system("figlet -f ANSI_Shadow OK")
+             print("\033[00m\n")
 
  except requests.exceptions.RequestException as e:
              print ("\n\033[95mไม่พบการเชื่อมต่อ ตรวจสอบอีกครั้งใน 10 วินาที\033[0m\n")
