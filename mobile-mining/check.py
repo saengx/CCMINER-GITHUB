@@ -4,7 +4,7 @@ def download_file(url, save_path):
     try:
         #print("\033[92mกำลังเชื่อมต่อกับ GITHUB \033[0m")
         print("\033[1;32;40m")
-        os.system("figlet -f digital connect to github")
+        os.system("figlet -f digital connect-to-github")
         print("\033[00m\n")
         response = requests.get (url, stream=True)
         response.raise_for_status()
