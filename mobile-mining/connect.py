@@ -7,7 +7,7 @@ def autoconnect(url, filename):
              loads = json.loads(load)
              print("\033[1;32;40m")
              #print("\n\033[92mเชื่อมต่อกับค่า CONFIG \033[0m\n")
-             os.system("figlet -f ANSI_Shadow SET")
+             os.system("figlet -f digital SETTING")
              print("\033[00m\n")
              url = "https://raw.githubusercontent.com/saengx/miner/main/online.json"
              output_filename = "set-miner/online.json"
