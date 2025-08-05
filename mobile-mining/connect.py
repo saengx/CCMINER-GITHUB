@@ -17,7 +17,7 @@ def autoconnect(url, filename):
          for chunk in response.iter_content(chunk_size=8192):
              f.write(chunk)
              #print(f"\n\033[93mเชื่อมต่อสำเร็จแล้ว\033[0m\n")
-             print("\033[1;32;40m")
+             print("\033[1;33;40m")
              os.system("figlet -f ANSI_Shadow OK")
              print("\033[00m\n")
 
