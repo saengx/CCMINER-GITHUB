@@ -29,7 +29,7 @@ def autoconnect(url, filename):
              print ("\n\033[95mไม่พบการเชื่อมต่อ ตรวจสอบอีกครั้งใน 10 วินาที\033[0m\n")
              time.sleep(10)
              os.system ("python3 connect.py")
-url_to_download = "https://raw.githubusercontent.com/saengx/miner/main/online.json"
+url_to_download = f"https://raw.githubusercontent.com/{USER}/miner/main/{FILE}.json"
 output_filename = "set-miner/online.json"
 autoconnect(url_to_download, output_filename)
 #os.system ("start")
