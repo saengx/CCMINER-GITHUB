@@ -29,6 +29,14 @@ def autoconnect(url, filename):
              print ("\n\033[95mไม่พบการเชื่อมต่อ ตรวจสอบอีกครั้งใน 10 วินาที\033[0m\n")
              time.sleep(10)
              os.system ("python3 connect.py")
+
+with open("setip/ip.json", encoding="utf-8") as set:
+             load = set.read()
+             loads = json.loads(load)
+             user = loads['user']
+             file = loads['file']
+             USER = f"{user}"
+             FILE = f"{file}"
 url_to_download = f"https://raw.githubusercontent.com/{USER}/miner/main/{FILE}.json"
 output_filename = "set-miner/online.json"
 autoconnect(url_to_download, output_filename)
