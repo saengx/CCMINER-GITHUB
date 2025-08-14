@@ -2,6 +2,12 @@ import os, time, json
 import requests
 def server(url, output_filename):
  try:
+     with open("setip/ip.json", encoding="utf-8") as set:
+             load = set.read()
+             loads = json.loads(load)
+             user = loads['user']
+             file = loads['file']
+
      with open("setip/ipserver.json", encoding="utf-8") as set:
              load = set.read()
              loads = json.loads(load)
@@ -37,4 +43,4 @@ with open("setip/ip.json", encoding="utf-8") as set:
              FILE = f"{file}"
 url_to_download = f"http://{IP}:8080/online.json"
 output_filename = "set-miner/online.json"
-autoconnect(url_to_download, output_filename)
+sever(url_to_download, output_filename)
