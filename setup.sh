@@ -13,6 +13,7 @@ chmod +x auto
 chmod +x edit-miner
 chmod +x run-miner
 chmod +x add-file
+chmod +x add-ip
 chmod +x update
 chmod +x down-grade
 chmod +x ANSI_Shadow.flf
@@ -20,7 +21,6 @@ chmod +x backup
 chmod +x restore
 chmod +x install.txt
 chmod +x set-miner
-chmod +x bash.bashrc
 chmod +x bash.bashrc
 
 apt-get install python3 -y
@@ -42,6 +42,7 @@ mv mobile-mining ../../etc
 mv edit-miner ../../bin
 mv run-miner ../../bin
 mv add-file ../../bin
+mv add-ip ../../bin
 mv update ../../bin
 mv down-grade ../../bin
 mv ANSI_Shadow.flf ../../usr/share/figlet
