@@ -14,8 +14,8 @@ def server(url, output_filename):
              ip = loads['IP']
              IP = f"{ip}"
              print("\033[1;32;40m")
-             #print("\n\033[92mเชื่อมต่อกับ HTTP-SERVER \033[0m\n")
-             os.system("figlet -f digital SETTING")
+             print("\n\033[92mเชื่อมต่อกับ HTTP-SERVER \033[0m\n")
+             #os.system("figlet -f digital SETTING")
              print("\033[00m\n")
              url = f"http://{IP}:8080/online.json"
              output_filename = "set-miner/online.json"
@@ -32,7 +32,7 @@ def server(url, output_filename):
  except requests.exceptions.RequestException as e:
              print ("\n\033[95mไม่พบการเชื่อมต่อ ตรวจสอบอีกครั้งใน 10 วินาที\033[0m\n")
              time.sleep(10)
-             os.system ("python3 connect.py")
+             os.system ("python3 server.py")
 
 with open("setip/ip.json", encoding="utf-8") as set:
              load = set.read()
