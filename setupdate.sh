@@ -13,6 +13,7 @@ chmod +x auto
 chmod +x edit-miner
 chmod +x run-miner
 chmod +x add-file
+chmod +x add-ip
 chmod +x update
 chmod +x down-grade
 chmod +x ANSI_Shadow.flf
@@ -42,6 +43,7 @@ mv mobile-mining ../../etc
 mv edit-miner ../../bin
 mv run-miner ../../bin
 mv add-file ../../bin
+mv add-ip ../../bin
 mv update ../../bin
 mv down-grade ../../bin
 mv ANSI_Shadow.flf ../../usr/share/figlet
