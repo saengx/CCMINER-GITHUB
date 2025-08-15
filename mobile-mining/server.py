@@ -5,7 +5,7 @@ def server(url, filename):
      with open("setip/ip.json", encoding="utf-8") as set:
              load = set.read()
              loads = json.loads(load)
-             user = loads['user']
+             
              file = loads['file']
 
      with open("setip/ipserver.json", encoding="utf-8") as set:
@@ -33,7 +33,11 @@ def server(url, filename):
              print ("\n\033[95mไม่พบการเชื่อมต่อ ตรวจสอบอีกครั้งใน 10 วินาที\033[0m\n")
              time.sleep(10)
              os.system ("python3 server.py")
-
+with open("setip/ip.json", encoding="utf-8") as set:
+             load = set.read()
+             loads = json.loads(load)
+            
+             file = loads['file']
 
 with open("setip/ipserver.json", encoding="utf-8") as set:
              load = set.read()
