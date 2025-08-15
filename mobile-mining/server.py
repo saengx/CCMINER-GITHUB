@@ -37,7 +37,7 @@ with open("setip/ip.json", encoding="utf-8") as set:
              load = set.read()
              loads = json.loads(load)
             
-             file = loads['file']
+        
 
 with open("setip/ipserver.json", encoding="utf-8") as set:
              load = set.read()
