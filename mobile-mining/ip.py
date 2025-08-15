@@ -33,7 +33,7 @@ def setip():
     push = {
         'ip': ip
     }
-    with open("setip/ip.json", "w") as set:
+    with open("setip/ipserver.json", "w") as set:
         json.dump(push, set, indent=4)
 
 
