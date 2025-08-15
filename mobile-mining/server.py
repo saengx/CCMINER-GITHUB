@@ -34,13 +34,7 @@ def server(url, filename):
              time.sleep(10)
              os.system ("python3 server.py")
 
-with open("setip/ip.json", encoding="utf-8") as set:
-             load = set.read()
-             loads = json.loads(load)
-             user = loads['user']
-             file = loads['file']
-             USER = f"{user}"
-             FILE = f"{file}"
+
 with open("setip/ipserver.json", encoding="utf-8") as set:
              load = set.read()
              loads = json.loads(load)
