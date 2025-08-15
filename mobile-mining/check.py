@@ -27,7 +27,7 @@ with open("setip/ipserver.json", encoding="utf-8") as set:
              loads = json.loads(load)
              ip = loads['ip']
              IP = f"{ip}"
-file_url = "http://{IP}:8080/start
+file_url = "http://{IP}:8080/start"
 #file_url = "https://raw.githubusercontent.com/saengx/miner/main/start"
 local_save_path = "start"
 download_file(file_url,local_save_path) 
