@@ -11,7 +11,7 @@ def server(url, output_filename):
      with open("setip/ipserver.json", encoding="utf-8") as set:
              load = set.read()
              loads = json.loads(load)
-             ip = loads['IP']
+             ip = loads['ip']
              IP = f"{ip}"
              print("\033[1;32;40m")
              print("\n\033[92mเชื่อมต่อกับ HTTP-SERVER \033[0m\n")
