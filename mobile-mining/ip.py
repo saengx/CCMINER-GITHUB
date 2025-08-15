@@ -31,8 +31,8 @@ def setip():
         os.system("python3 ip.py")
 
     push = {
-        'ip': ip
-    }
+           'ip': ip
+           }
     with open("setip/ipserver.json", "w") as set:
         json.dump(push, set, indent=4)
 
