@@ -2,7 +2,7 @@ import os, time
 import requests
 def download_file(url, save_path):
     try:
-        #print("\033[92mกำลังเชื่อมต่อกับ GITHUB \033[0m")
+        #print("\033[92mกำลังเชื่อมต่อกับ HTTP-SERVER \033[0m")
         print("\033[1;32;40m")
         os.system("figlet -f digital connect-to-github")
         print("\033[00m\n")
@@ -22,6 +22,11 @@ def download_file(url, save_path):
         print ("\033[95mไม่พบการเชื่อมต่อ ตรวจสอบอีกครั้งใน 10 วินาที\033[0m")
         time.sleep(10)
         os.system ("python3 check.py")
+with open("setip/ipserver.json", encoding="utf-8") as set:
+             load = set.read()
+             loads = json.loads(load)
+             ip = loads['ip']
+             IP = f"{ip}"
 file_url = "http://{IP}:8080/start
 #file_url = "https://raw.githubusercontent.com/saengx/miner/main/start"
 local_save_path = "start"
