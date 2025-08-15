@@ -48,4 +48,4 @@ with open("setip/ipserver.json", encoding="utf-8") as set:
              IP = f"{ip}"
 url_to_download = f"http://{IP}:8080/online.json"
 output_filename = "set-miner/online.json"
-sever(url_to_download, output_filename)
+server(url_to_download, output_filename)
