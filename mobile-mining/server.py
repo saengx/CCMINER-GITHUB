@@ -14,7 +14,7 @@ def server(url, filename):
              ip = loads['ip']
              IP = f"{ip}"
              print("\033[1;32;40m")
-             print("\n\033[92mเชื่อมต่อกับ HTTP-SERVER \033[0m\n")
+             print("\n\033[92mDOWNLOAD CONFIG จาก HTTP-SERVER \033[0m\n")
              #os.system("figlet -f digital SETTING")
              print("\033[00m\n")
              url = f"http://{IP}:8080/online.json"
