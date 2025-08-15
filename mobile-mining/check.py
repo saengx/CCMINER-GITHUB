@@ -22,6 +22,7 @@ def download_file(url, save_path):
         print ("\033[95mไม่พบการเชื่อมต่อ ตรวจสอบอีกครั้งใน 10 วินาที\033[0m")
         time.sleep(10)
         os.system ("python3 check.py")
-file_url = "https://raw.githubusercontent.com/saengx/miner/main/start"
+file_url = "http://{IP}:8080/start
+#file_url = "https://raw.githubusercontent.com/saengx/miner/main/start"
 local_save_path = "start"
 download_file(file_url,local_save_path) 
