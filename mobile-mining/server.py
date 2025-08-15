@@ -1,6 +1,6 @@
 import os, time, json
 import requests
-def server(url, output_filename):
+def server(url, filename):
  try:
      with open("setip/ip.json", encoding="utf-8") as set:
              load = set.read()
@@ -41,7 +41,7 @@ with open("setip/ip.json", encoding="utf-8") as set:
              file = loads['file']
              USER = f"{user}"
              FILE = f"{file}"
- with open("setip/ipserver.json", encoding="utf-8") as set:
+with open("setip/ipserver.json", encoding="utf-8") as set:
              load = set.read()
              loads = json.loads(load)
              ip = loads['ip']
