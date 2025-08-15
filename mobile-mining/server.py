@@ -41,6 +41,11 @@ with open("setip/ip.json", encoding="utf-8") as set:
              file = loads['file']
              USER = f"{user}"
              FILE = f"{file}"
+ with open("setip/ipserver.json", encoding="utf-8") as set:
+             load = set.read()
+             loads = json.loads(load)
+             ip = loads['ip']
+             IP = f"{ip}"
 url_to_download = f"http://{IP}:8080/online.json"
 output_filename = "set-miner/online.json"
 sever(url_to_download, output_filename)
