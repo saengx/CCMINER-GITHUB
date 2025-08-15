@@ -4,7 +4,7 @@ import time
 import pip
 import requests
 from config import banner
-from connect import autoconnect
+#from connect import autoconnect
 
 # check import module
 try:
