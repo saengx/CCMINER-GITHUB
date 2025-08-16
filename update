@@ -7,7 +7,7 @@ cd ../etc/mobile-mining/set-miner
 cp -r online.json offline.json /../root/CCMINER-GITHUB/mobile-mining/set-miner
 cd
 cd ../etc/mobile-mining/setip
-cp -r ip.json ipserver.json setcpu.json /../root/CCMINER-GITHUB/mobile-mining/setip
+cp -r ip.json ipserver.json set-cpu.json /../root/CCMINER-GITHUB/mobile-mining/setip
 cd
 cd ../etc
 rm -rf mobile-mining 
