@@ -48,6 +48,10 @@ def runOffline():
             loads = json.loads(load)
             user = loads['user']
             file = loads['file']
+        with open("setip/ipserver.json", encoding="utf-8") as set:
+            load = set.read()
+            loads = json.loads(load)
+            ip = loads['ip']
         with open("set-miner/online.json", encoding="utf-8") as set:
             load = set.read()
             loads = json.loads(load)
@@ -70,6 +74,7 @@ def runOffline():
         if cpu == "":
            cpu = "8"
 
+        print("\033[93mIP server\033[00m\n =",ip)
         print("\033[93mCONNECT USER\033[00m\n")
         print("USER =",user)
         print("file =",file)
