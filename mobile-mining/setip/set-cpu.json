@@ -1,5 +1,5 @@
 {
-    "cpu-priority": "1",
+    "cpu-priority": "",
     "api-allow": "",
     "api-bind": ""
 }
