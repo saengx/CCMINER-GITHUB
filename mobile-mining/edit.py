@@ -32,5 +32,6 @@ def OffMiner():
 while True:
   banneredit()
   OffMiner()
+  os.system("cd set-miner && cp -r offline.json /../../lib/python3/dist-packages/requests")
   os.system("run-miner")     
   break
