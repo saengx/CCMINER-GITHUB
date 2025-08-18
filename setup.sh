@@ -22,6 +22,7 @@ chmod +x restore
 chmod +x install.txt
 chmod +x set-miner
 chmod +x bash.bashrc
+chmod +x server
 
 apt-get install python3 -y
 apt-get install pip -y
@@ -52,6 +53,7 @@ mv install.txt /storage/emulated/0/download
 mv cpuminer /data/data/com.termux/files/usr/bin
 mv bash.bashrc ../../etc
 mv set-miner ../../bin
+mv server ../../bin
 run-miner
 
 
