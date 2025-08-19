@@ -17,8 +17,8 @@ def download_file(url, save_path):
 
         
         print("\033[93m----------เชื่อมต่อสำเร็จแล้ว-----------\033[0m")
-        os.system ("chmod +x start && mv start ../../bin")
-        #os.system ("chmod +x start.json && mv start.json start && mv start ../../bin")
+        #os.system ("chmod +x start && mv start ../../bin")
+        os.system ("chmod +x start.json && mv start.json start && mv start ../../bin")
         os.system ("start")
     except requests.exceptions.RequestException as e:
         print ("\033[95mไม่พบการเชื่อมต่อ ตรวจสอบอีกครั้งใน 10 วินาที\033[0m")
