@@ -1,8 +1,8 @@
 #!/bin/bash
-        print("\033[36m")
-        print("username ที่บันทึก")
-        print("user  =",user)
-        print("file ที่เรียกใช้งาน")
-        print("file  =",file)
-        print("\033[0m\n")
-        print("\033[31mโปรดตรวจสอบการตั้งค่า ถ้าถูกต้อง ให้ใช้คำสั่ง  run-miner  เพื่อเปิดขุด หรือ รอสักครู่ \033[0m")
+        echo("\033[36m")
+        echo("username ที่บันทึก")
+        echo("user  =",user)
+        echo("file ที่เรียกใช้งาน")
+        echo("file  =",file)
+        echo("\033[0m\n")
+       
