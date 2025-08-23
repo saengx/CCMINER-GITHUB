@@ -1,8 +1,19 @@
 #!/bin/bash
-        echo("\033[36m")
-        echo("username ที่บันทึก")
-        echo("user  =",user)
-        echo("file ที่เรียกใช้งาน")
-        echo("file  =",file)
-        echo("\033[0m\n")
-       
+
+ echo -e "\\e[37m⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡\\e[0m"
+ echo -e "\\e[46mคำสั่งใช้งานต่างๆในโปรแกรม\\e[0m"
+ echo -e "\\e[37m⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡\\e[0m"
+ echo -e "\\e[44mrun-miner\\e[0m"
+ echo -e "\\e[33mใช้เพื่อเริ่มโปรแกรมขุด\\e[0m"
+ echo -e "\\e[44medit-miner\\e[0m"
+ echo -e "\\e[33mแก้ไข ชื่อ และจำนวนใช้งาน เทรดcpu\\e[0m"
+ echo -e "\\e[44madd-file\\e[0m"
+ echo -e "\\e[33mใช้เปลี่ยนชื่อ user และ file ที่ link กับ github\\e[0m"
+ echo -e "\\e[44madd-ip\\e[0m"
+ echo -e "\\e[33mใช้เปลี่ยนเลข ip address เพื่อให้ตรงกันกับ http-server\\e[0m"
+ echo -e "\\e[44mset-miner\\e[0m"
+ echo -e "\\e[33mตั้งค่าpriority ,access ,bind #สำหรับผู้เชี่ยวชาญ#\\e[0m"
+ echo -e "\\e[44mserver\\e[0m"
+ echo -e "\\e[33mคำสั่งเข้าแก้ไขชื่อเพื่อส่งไป http-server #สำหรับผู้เชี่ยวชาญ#\\e[0m"
+ echo -e "\\e[44mupdate\\e[0m"
+ echo -e "\\e[33mคำสั่งอัพเดทระบบใหม่ เพื่อติดตั้งใหม่อีกครั้ง\\e[0m"
