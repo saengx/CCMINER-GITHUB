@@ -5,7 +5,6 @@ def nameserver():
              load = set.read()
              loads = json.loads(load)
              name = loads['name']
-
              NAME = f"{name}"
 __title__ = 'requests'
 __description__ = 'Python HTTP for Humans.'
