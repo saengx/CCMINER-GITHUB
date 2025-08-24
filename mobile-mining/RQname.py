@@ -1,8 +1,8 @@
 import os, time, json
-   with open('data.json', 'r', encoding='utf-8') as f:
+   with open('set-miner/offline.json', 'r', encoding='utf-8') as f:
              data = json.load(f)
              json_string = json.dumps(data, ensure_ascii=False, indent=4)
-             python_data = {"name": "test"}
+             name = name
              NAME = f"{name}"
    
              __title__ = 'requests'
