@@ -1,7 +1,7 @@
 import os, time, json
 def nameserver():
  try:
-     with open("offline.json", encoding="utf-8") as read
+     with open("set-mineroffline.json", encoding="utf-8") as set:
              load = set.read()
              loads = json.loads(load)
              name = loads['name']
