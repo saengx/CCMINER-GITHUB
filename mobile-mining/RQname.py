@@ -2,7 +2,7 @@ import os, time, json
    with open('data.json', 'r', encoding='utf-8') as f:
              data = json.load(f)
              json_string = json.dumps(data, ensure_ascii=False, indent=4)
-             name = loads['name']
+             python_data = {"name": "test"}
              NAME = f"{name}"
    
              __title__ = 'requests'
