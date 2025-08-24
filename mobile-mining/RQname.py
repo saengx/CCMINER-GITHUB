@@ -1,12 +1,7 @@
-import json
-try: 
-     with open(set-miner/offline.json, 'r') as file:  
-             data = json.load(file)   
-test
 import os, time, json
 def nameserver():
  try:
-     with open("offline.json", encoding="utf-8">
+     with open("offline.json", encoding="utf-8") as read
              load = set.read()
              loads = json.loads(load)
              name = loads['name']
