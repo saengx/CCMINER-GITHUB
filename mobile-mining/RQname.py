@@ -7,9 +7,9 @@ def nameserver():
              name = loads['name']
              NAME = f"{name}"
  except requests.exceptions.RequestException as e:
-             print ("\n\033[95mไม่พบการเชื่อมต่อ ตรวจสอบอีกครั้งใน 10 วินาที\033[0m\n")
+             print ("\n\033[95mไม่พบการตั้งค่า กำลังไปตั้งค่าใหม่\033[0m\n")
              time.sleep(10)
-             os.system ("python3 connect.py")
+             os.system ("python3 edit.py")
 __title__ = 'requests'
 __description__ = 'Python HTTP for Humans.'
 __url__ = 'https://requests.readthedocs.io'
