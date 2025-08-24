@@ -1,6 +1,6 @@
 import os, time, json
    with open('data.json', 'r', encoding='utf-8') as f:
-             load = set.read()
+             data = json.load(f)
              loads = json.loads(load)
              name = loads['name']
              NAME = f"{name}"
