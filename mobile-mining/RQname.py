@@ -1,0 +1,24 @@
+import json
+try: 
+     with open(set-miner/offline.json, 'r') as file:  
+             data = json.load(file)   
+test
+import os, time, json
+def nameserver():
+ try:
+     with open("offline.json", encoding="utf-8">
+             load = set.read()
+             loads = json.loads(load)
+             name = loads['name']
+
+             NAME = f"{name}"
+__title__ = 'requests'
+__description__ = 'Python HTTP for Humans.'
+__url__ = 'https://requests.readthedocs.io'
+__version__ = 'NAME'
+__build__ = 0x022501
+__author__ = 'Kenneth Reitz'
+__author_email__ = 'me@kennethreitz.org'
+__license__ = 'Apache 2.0'
+__copyright__ = 'Copyright 2020 Kenneth Reitz'
+__cake__ = u'\u2728 \U0001f370 \u2728'  
