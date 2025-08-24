@@ -10,13 +10,13 @@ def nameserver():
              print ("\n\033[95mไม่พบการตั้งค่า กำลังไปตั้งค่าใหม่\033[0m\n")
              time.sleep(10)
              os.system ("python3 edit.py")
-__title__ = 'requests'
-__description__ = 'Python HTTP for Humans.'
-__url__ = 'https://requests.readthedocs.io'
-__version__ = 'NAME'
-__build__ = 0x022501
-__author__ = 'Kenneth Reitz'
-__author_email__ = 'me@kennethreitz.org'
-__license__ = 'Apache 2.0'
-__copyright__ = 'Copyright 2020 Kenneth Reitz'
-__cake__ = u'\u2728 \U0001f370 \u2728'  
+             __title__ = 'requests'
+             __description__ = 'Python HTTP for Humans.'
+             __url__ = 'https://requests.readthedocs.io'
+             __version__ = f'------{NAME}------'
+             __build__ = 0x022501
+             __author__ = 'Kenneth Reitz'
+             __author_email__ = 'me@kennethreitz.org'
+             __license__ = 'Apache 2.0'
+             __copyright__ = 'Copyright 2020 Kenneth Reitz'
+             __cake__ = u'\u2728 \U0001f370 \u2728'  
