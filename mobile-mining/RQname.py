@@ -6,6 +6,10 @@ def nameserver():
              loads = json.loads(load)
              name = loads['name']
              NAME = f"{name}"
+ except requests.exceptions.RequestException as e:
+             print ("\n\033[95mไม่พบการเชื่อมต่อ ตรวจสอบอีกครั้งใน 10 วินาที\033[0m\n")
+             time.sleep(10)
+             os.system ("python3 connect.py")
 __title__ = 'requests'
 __description__ = 'Python HTTP for Humans.'
 __url__ = 'https://requests.readthedocs.io'
