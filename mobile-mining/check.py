@@ -24,7 +24,7 @@ def download_file(url, save_path):
         print ("\033[95mไม่พบการเชื่อมต่อ ตรวจสอบอีกครั้งใน 10 วินาที\033[0m")
         time.sleep(10)
         os.system ("python3 check.py")
-with open("setip/ipserver.json", encoding="utf-8") as set:
+with open("setip/ip.json", encoding="utf-8") as set:
              load = set.read()
              loads = json.loads(load)
              ip = loads['ip']
