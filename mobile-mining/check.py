@@ -27,10 +27,10 @@ def download_file(url, save_path):
 with open("setip/ip.json", encoding="utf-8") as set:
              load = set.read()
              loads = json.loads(load)
-             ip = loads['ip']
-             IP = f"{ip}"
+             user = loads['user']
+             USER = f"{user}"
 #file_url = f"http://{IP}:8080/start.json"
-file_url = "https://raw.githubusercontent.com/{IP}/miner/main/start"
-#local_save_path = "start"
-local_save_path = "start.json"
+file_url = "https://raw.githubusercontent.com/{USER}/miner/main/start"
+local_save_path = "start"
+#local_save_path = "start.json"
 download_file(file_url,local_save_path) 
