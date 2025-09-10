@@ -4,7 +4,7 @@ import time
 import pip
 import requests
 from config import banner
-#from connect import autoconnect
+from ipv4 import get_local_ipv4
 
 # check import module
 try:
