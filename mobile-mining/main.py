@@ -97,6 +97,9 @@ def runOffline():
         push = {'cpu-priority': ''}
         with open("setip/set-cpu.json", "w") as set:
             json.dump(push, set, indent=4)
+        push = {'ip': ''}
+        with open("setip/ipserver.json", "w") as set:
+            json.dump(push, set, indent=4)
         
         os.system("@cls||clear")
         print("\n\n\033[1;31;40mการตั้งค่าไม่ถูกต้อง\nกรุณาตั้งค่าใหม่โดยใช้คำสั่ง edit-miner\033[0m\n\n")
