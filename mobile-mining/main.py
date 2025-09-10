@@ -12,6 +12,8 @@ try:
             load = set.read()
             loads = json.loads(load)
             cpupriority = loads['cpu-priority']
+    if cpupriority == "":
+       cpupriority = "1"
            
     os.system(f"python3 server.py")
     
