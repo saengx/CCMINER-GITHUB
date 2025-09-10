@@ -32,12 +32,11 @@ except ImportError:
     
     
 zergpool = ["stratum+tcp://verushash.mine.zergpool.com:3300","stratum+tcp://verushash.na.mine.zergpool.com:3300","stratum+tcp://verushash.eu.mine.zergpool.com:3300","stratum+tcp://verushash.asia.mine.zergpool.com:3300"]
-    
+ localIPv4 = get_local_ipv4() 
     
 def runOffline():
     banner()
     get_local_ipv4()
-localIPv4 = get_local_ipv4()
     try:
         with open("setip/ipserver.json", encoding="utf-8") as set:
             load = set.read()
