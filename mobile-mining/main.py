@@ -37,7 +37,7 @@ zergpool = ["stratum+tcp://verushash.mine.zergpool.com:3300","stratum+tcp://veru
 def runOffline():
     banner()
     get_local_ipv4()
-IPv4 = get_local_ipv4()
+localIPv4 = get_local_ipv4()
     try:
         with open("setip/ipserver.json", encoding="utf-8") as set:
             load = set.read()
