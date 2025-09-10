@@ -5,7 +5,7 @@ def banner():
     os.system("clear")
     print("\033[1;32;40m")
     os.system("figlet -f ANSI_Shadow VERUS")
-    os.system("figlet -f digital Github version")
+    os.system("figlet -f digital http version")
     #print("\033[00m\n")
     print("\033[96mDeveloper by PICHET SAENGTAWAN\033[0m")
     #print("\033[96m\033[0m")
