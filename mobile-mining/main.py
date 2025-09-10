@@ -12,8 +12,7 @@ try:
             load = set.read()
             loads = json.loads(load)
             cpupriority = loads['cpu-priority']
-            apiallow = loads['api-allow']
-            apibind = loads['api-bind']
+           
     os.system(f"python3 server.py")
     
     #os.system(f"cd set-miner && mv {file}.json online.json")
@@ -76,8 +75,8 @@ def runOffline():
            
            os.system(f"python3 cpu.py")
            #time.sleep(2)
-           #os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password},ID={name} -t {cpu} --cpu-priority {cpupriority} --api-allow={apiallow} --api-bind={apibind}")
-           os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password},ID={name} -t {cpu} --cpu-priority {cpupriority} --api-allow={apiallow} --api-bind={apibind}")
+           #os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password},ID={name} -t {cpu} --cpu-priority {cpupriority}")
+           os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password},ID={name} -t {cpu} --cpu-priority {cpupriority}")
        
         else:
         	
@@ -87,7 +86,7 @@ def runOffline():
          os.system(f"python3 cpu.py")
          #time.sleep(2)
          #os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password} -t {cpu}")
-         os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password} -t {cpu} --cpu-priority {cpupriority} --api-allow={apiallow} --api-bind={apibind}")
+         os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password} -t {cpu} --cpu-priority {cpupriority}")
     except:
         push = {'pool': '','wallet': '','pass': ''}
         with open("set-miner/online.json", "w") as set:
@@ -98,7 +97,7 @@ def runOffline():
         push = {'ip': '','file': ''}
         with open("setip/ip.json", "w") as set:
             json.dump(push, set, indent=4)
-        push = {'cpu-priority': '','api-allow': '','api-bind': ''}
+        push = {'cpu-priority': ''}
         with open("setip/set-cpu.json", "w") as set:
             json.dump(push, set, indent=4)
         
