@@ -8,11 +8,6 @@ from config import banner
 
 # check import module
 try:
-    with open("setip/ip.json", encoding="utf-8") as set:
-            load = set.read()
-            loads = json.loads(load)
-            user = loads['user']
-            file = loads['file']
     with open("setip/set-cpu.json", encoding="utf-8") as set:
             load = set.read()
             loads = json.loads(load)
@@ -20,10 +15,8 @@ try:
             apiallow = loads['api-allow']
             apibind = loads['api-bind']
     os.system(f"python3 server.py")
-    #os.system(f"python3 connect.py")
-    #autoconnect()
-    #os.system(f"cd set-miner && wget -N --timeout 20 --connect-timeout=30 -t 2 --no-check-certificate https://raw.githubusercontent.com/{user}/miner/main/{file}.json")
-    os.system(f"cd set-miner && mv {file}.json online.json")
+    
+    #os.system(f"cd set-miner && mv {file}.json online.json")
     time.sleep(2)
     from progress.bar import ChargingBar
 except ImportError:
@@ -75,9 +68,7 @@ def runOffline():
            cpu = "8"
 
         print("\033[93mIP server\033[00m\n",ip)
-        print("\033[93mCONNECT USER\033[00m\n")
-        print("USER =",user)
-        print("file =",file)
+      
         print("\033[1;34;40m")   
         print("WALLET =",wallet)
         print("NAME   =",name)
