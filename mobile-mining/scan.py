@@ -2,7 +2,7 @@ import socket
 
 def scan_port(ip, port):
     try:
-        sock = socket.create_connection((ip, port), timeout=1)
+        sock = socket.create_connection((ip, port), timeout=0.1)
         print(f"พบ HTTP Server ที่ {ip}:{port}")
         sock.close()
         return True
