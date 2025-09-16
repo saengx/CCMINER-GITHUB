@@ -1,6 +1,6 @@
 import socket, json, os
 import requests
-def download_file(url, save_path):
+def checknet():
     try:
         print("\033[92mตรวจสอบการเชื่อมต่อ INTERNET \033[0m")
         response = requests.get (url, stream=True)
@@ -10,7 +10,7 @@ def download_file(url, save_path):
     except requests.exceptions.RequestException as e:
         print ("\033[95mไม่พบการเชื่อมต่อ ตรวจสอบอีกครั้งใน 10 วินาที\033[0m")
         time.sleep(10)
-        download_file(url, save_path):
+        checknet()
 def scan_port(ips, port)
     try:
         sock = socket.create_connection((ips, port), timeout=0.1)
