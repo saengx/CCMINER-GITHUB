@@ -3,13 +3,13 @@ import socket, json, os
 def scan_port(ips, port):
     try:
         sock = socket.create_connection((ips, port), timeout=0.1)
-        print(f"พบ HTTP Server ที่ {ip}:{port}")
+        print(f"พบ HTTP Server ที่ {ips}:{port}")
         ips = f"{ips}"
         IPS = ips
             #sock.close()
         push = {'ip': f"{IPS}"}
         with open("setip/ipserver.json", "w") as set:
-                json.dump(push, set, indent=4)
+             json.dump(push, set, indent=4)
             
     except (socket.timeout, ConnectionRefusedError):
         print("ไม่พบ http-server ในระบบ")
