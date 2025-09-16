@@ -2,7 +2,7 @@ import socket, json, os
 import requests
 def scan_port(ips, port):
     try:
-
+        print("\033[92mตรวจสอบการเชื่อมต่อ INTERNET \033[0m")
 
         sock = socket.create_connection((ips, port), timeout=0.1)
         print(f"พบ HTTP Server ที่ {ips}:{port}")
