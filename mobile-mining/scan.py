@@ -8,8 +8,8 @@ def scan_port(ips, port):
             ip = loads['ip']
             sock = socket.create_connection((ips, port), timeout=0.1)
             #print(f"พบ HTTP Server ที่ {ip}:{port}")
-            sock.close()
-            push = {'ip': ''}
+            #sock.close()
+            push = f"{'ip': '{ips}'}"
             with open("setip/ipserver.json", "w") as set:
                 json.dump(push, set, indent=4)
             
