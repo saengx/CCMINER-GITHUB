@@ -1,16 +1,15 @@
 import socket
 
-def scan_port(ip, port):
+def scan_port(ips, port):
     try:
         with open("setip/ipserver.json", encoding="utf-8") as set:
             load = set.read()
             loads = json.loads(load)
             ip = loads['ip']
-    try:
-        sock = socket.create_connection((ip, port), timeout=0.1)
-        print(f"พบ HTTP Server ที่ {ip}:{port}")
-        sock.close()
-        return True
+            sock = socket.create_connection((ips, port), timeout=0.1)
+            print(f"พบ HTTP Server ที่ {ip}:{port}")
+            sock.close()
+            return True
     except (socket.timeout, ConnectionRefusedError):
         return False
 
