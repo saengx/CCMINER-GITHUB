@@ -19,7 +19,7 @@ with open("setip/IPprefix.json", encoding="utf-8") as set:
          IPprefix = loads['IPprefix']
 network_ip_prefix = f"{IPprefix}" # เปลี่ยนเป็น IP prefix ของเครือข่ายคุณ
 
-for i in range(1, 255):
+for i in range(2, 256):
     ip_address = f"{network_ip_prefix}.{i}"
     scan_port(ip_address, 8080)  # ตรวจสอบพอร์ต 8080 (HTTP)
    
