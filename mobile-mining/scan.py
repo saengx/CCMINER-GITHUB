@@ -12,7 +12,7 @@ def scan_port(ips, port):
              json.dump(push, set, indent=4)
             
     except (socket.timeout, ConnectionRefusedError):
-        print(f"{network_ip_prefix}.{i}")
+        #print(f"{network_ip_prefix}.{i}")
 network_ip_prefix = "172.16.10" # เปลี่ยนเป็น IP prefix ของเครือข่ายคุณ
 
 for i in range(1, 255):
