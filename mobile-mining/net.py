@@ -11,3 +11,9 @@ def check_internet_connection(url='http://www.google.com/', timeout=5):
         print("\033[94mเริ่มต้นสแกนหา HTTP server\033[0m")
         os.system("python3 scan.py")
     except requests.ConnectionError:
+        print ("\033[95mไม่พบการเชื่อมต่อ ตรวจสอบอีกครั้งใน 10 วินาที\033[0m")
+        time.sleep(10)
+        os.system ("python3 net.py")
+
+if __name__ == "__main__":
+    check_internet_connection()
