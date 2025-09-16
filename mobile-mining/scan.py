@@ -7,7 +7,7 @@ def scan_port(ips, port):
         ips = f"{ips}"
         IPS = ips
             #sock.close()
-        push = {'ip': f"{ips}"}
+        push = {'ip': f"{IPS}"}
         with open("setip/ipserver.json", "w") as set:
                 json.dump(push, set, indent=4)
             
