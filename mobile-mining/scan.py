@@ -11,7 +11,7 @@ def checknet():
         print ("\033[95mไม่พบการเชื่อมต่อ ตรวจสอบอีกครั้งใน 10 วินาที\033[0m")
         time.sleep(10)
         checknet()
-def scan_port(ips, port)
+ def scan_port(ips, port)
     try:
         sock = socket.create_connection((ips, port), timeout=0.1)
         print(f"พบ HTTP Server ที่ {ips}:{port}")
