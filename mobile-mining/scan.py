@@ -3,6 +3,9 @@ import requests
 def scan_port(ips, port):
     try:
         print("\033[92mตรวจสอบการเชื่อมต่อ INTERNET \033[0m")
+        response = requests.get (url, stream=True)
+        response.raise_for_status()
+
 
         sock = socket.create_connection((ips, port), timeout=0.1)
         print(f"พบ HTTP Server ที่ {ips}:{port}")
