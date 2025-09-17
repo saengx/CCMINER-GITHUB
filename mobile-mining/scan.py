@@ -22,4 +22,5 @@ network_ip_prefix = f"{IPprefix}" # เปลี่ยนเป็น IP prefix 
 for i in range(2, 256):
     ip_address = f"{network_ip_prefix}.{i}"
     scan_port(ip_address, 8080)  # ตรวจสอบพอร์ต 8080 (HTTP)
+
 os.system("python3 check.py")   
