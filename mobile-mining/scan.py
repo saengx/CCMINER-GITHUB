@@ -5,8 +5,8 @@ def scan_port(ips, port):
         print(f"พบ HTTP Server ที่ {ips}:{port}")
         ips = f"{ips}"
         IPS = ips
-        sock.close()
-        return True
+        #sock.close()
+        #return True
     
         push = {'ip': f"{IPS}"}
         with open("setip/ipserver.json", "w") as set:
@@ -14,7 +14,7 @@ def scan_port(ips, port):
             
     except (socket.timeout, ConnectionRefusedError):
         print(f"{network_ip_prefix}.{i}")
-        return False 
+        #return False 
 with open("setip/IPprefix.json", encoding="utf-8") as set:
          load = set.read()
          loads = json.loads(load)
