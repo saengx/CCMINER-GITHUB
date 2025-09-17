@@ -50,4 +50,5 @@ while True:
         print("IPprefix  =",IPprefix)
         print("\033[0m\n")
         print("\033[31mโปรดตรวจสอบการตั้งค่า ถ้าถูกต้อง ให้ใช้คำสั่ง  run-miner  เพื่อเปิดขุด\033[0m")
+        os.system("python3 net.py")
     break
