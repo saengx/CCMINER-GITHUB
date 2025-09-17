@@ -1,16 +1,4 @@
 import socket, json, os
-import requests
-def checknet():
-    try:
-        print("\033[92mตรวจสอบการเชื่อมต่อ INTERNET \033[0m")
-        response = requests.get (url, stream=True)
-        response.raise_for_status()
-        print("\033[93m----------เชื่อมต่อสำเร็จแล้ว-----------\033[0m")
-     
-    except requests.exceptions.RequestException as e:
-        print ("\033[95mไม่พบการเชื่อมต่อ ตรวจสอบอีกครั้งใน 10 วินาที\033[0m")
-        time.sleep(10)
-        checknet()
 def scan_port(ips, port):
     try:
         sock = socket.create_connection((ips, port), timeout=0.1)
