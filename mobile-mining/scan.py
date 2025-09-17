@@ -12,7 +12,7 @@ def scan_port(ips, port):
         with open("setip/ipserver.json", "w") as set:
              json.dump(push, set, indent=4)
         if ip == "":
-        scan_port(ips, port)
+           scan_port(ips, port)
     except (socket.timeout, ConnectionRefusedError):
         print(f"{network_ip_prefix}.{i}")
         #return False 
