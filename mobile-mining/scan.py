@@ -5,7 +5,7 @@ def scan_port(ips, port):
         print(f"พบ HTTP Server ที่ {ips}:{port}")
         ips = f"{ips}"
         IPS = ips
-        #sock.close()
+        sock.close()
         #return True
     
         push = {'ip': f"{IPS}"}
