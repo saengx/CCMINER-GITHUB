@@ -2,7 +2,7 @@ import socket, json, os
 def scan_port(ips, port):
     try:
         sock = socket.create_connection((ips, port), timeout=0.1)
-        result = sock.connect_ex((ips, port))
+        result = sock.connect(sa)
         sock.close()
         if result == 0:
             print(f"พบ HTTP Server ที่ {ips}:{port}")
