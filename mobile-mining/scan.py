@@ -3,7 +3,7 @@ def scan_port(ips, port):
     try:
         sock = socket.create_connection((ips, port), timeout=0.1)
         result = sock.connect(sa)
-        sock.close()
+        #sock.close()
         if result == 0:
             print(f"พบ HTTP Server ที่ {ips}:{port}")
             ips = f"{ips}"
