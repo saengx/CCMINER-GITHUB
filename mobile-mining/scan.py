@@ -9,7 +9,7 @@ def scan_port(ips, port):
             ips = f"{ips}"
             IPS = ips
             #return True
-    
+         else 
             push = {'ip': f"{IPS}"}
             with open("setip/ipserver.json", "w") as set:
                 json.dump(push, set, indent=4)
