@@ -1,9 +1,6 @@
 import socket, json, os, sys
 def scan_port(ips, port):
     try:
-        push = {'ip': ''}
-        with open("setip/ipserver.json", "w") as set:
-                json.dump(push, set, indent=4)
         sock = socket.create_connection((ips, port), timeout=0.1)
         #sock.close()
         
@@ -19,6 +16,9 @@ def scan_port(ips, port):
         os.system("python3 check.py")
         #sys.exit("python3 เทสระบบ")
     except (socket.timeout, ConnectionRefusedError):
+        push = {'ip': ''}
+        with open("setip/ipserver.json", "w") as set:
+                json.dump(push, set, indent=4)
         print(f"{network_ip_prefix}.{i}")
         #return False 
 with open("setip/IPprefix.json", encoding="utf-8") as set:
