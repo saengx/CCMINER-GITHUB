@@ -2,7 +2,7 @@ import socket, json, os
 def scan_port(ips, port):
     try:
         push = {'ip': ''}
-            with open("setip/ipserver.json", "w") as set:
+        with open("setip/ipserver.json", "w") as set:
                 json.dump(push, set, indent=4)
         sock = socket.create_connection((ips, port), timeout=0.1)
         sock.close()
