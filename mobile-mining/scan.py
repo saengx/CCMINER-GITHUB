@@ -17,6 +17,7 @@ def scan_port(ips, port):
         with open("setip/ipserver.json", "w") as set:
             json.dump(push, set, indent=4)
         sys.exit("python3 เทสระบบ") 
+        os.system("python3 check.py")
     except (socket.timeout, ConnectionRefusedError):
         print(f"{network_ip_prefix}.{i}")
         #return False 
@@ -31,4 +32,4 @@ for i in range(2, 256):
     ip_address = f"{network_ip_prefix}.{i}"
     scan_port(ip_address, 8080)  # ตรวจสอบพอร์ต 8080 (HTTP)
 
-os.system("python3 check.py")   
+os.system("python3 scan.py")   
