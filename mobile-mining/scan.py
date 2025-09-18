@@ -5,7 +5,7 @@ def scan_port(ips, port):
         with open("setip/ipserver.json", "w") as set:
                 json.dump(push, set, indent=4)
         sock = socket.create_connection((ips, port), timeout=0.1)
-        #sock.close()
+        sock.close()
         
         print(f"พบ HTTP Server ที่ {ips}:{port}")
         ips = f"{ips}"
