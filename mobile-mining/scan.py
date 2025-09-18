@@ -1,20 +1,21 @@
 import socket, json, os
 def scan_port(ips, port):
     try:
-        sock = socket.create_connection((ips, port), timeout=0.1)
-        result = response
-        #sock.close()
-        if result == 0:
-            print(f"พบ HTTP Server ที่ {ips}:{port}")
-            ips = f"{ips}"
-            IPS = ips
-            #return True
-         
-            push = {'ip': f"{IPS}"}
+        push = {'ip': f"{IPS}"}
             with open("setip/ipserver.json", "w") as set:
                 json.dump(push, set, indent=4)
-        else:
-            os.system("python3 scan.py") 
+        sock = socket.create_connection((ips, port), timeout=0.1)
+        sock.close()
+        
+        print(f"พบ HTTP Server ที่ {ips}:{port}")
+        ips = f"{ips}"
+        IPS = ips
+            #return True
+         
+        push = {'ip': f"{IPS}"}
+        with open("setip/ipserver.json", "w") as set:
+            json.dump(push, set, indent=4)
+        
     except (socket.timeout, ConnectionRefusedError):
         print(f"{network_ip_prefix}.{i}")
         #return False 
