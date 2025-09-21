@@ -21,6 +21,9 @@ def scan_port(ips, port):
                 #json.dump(push, set, indent=4)
         print(f"{network_ip_prefix}.{i}")
         #return False 
+push = {'ip': ''}
+        with open("setip/ipserver.json", "w") as set:
+            json.dump(push, set, indent=4)
 with open("setip/IPprefix.json", encoding="utf-8") as set:
          load = set.read()
          loads = json.loads(load)
