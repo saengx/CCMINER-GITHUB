@@ -21,8 +21,8 @@ def download_file(url, save_path):
         os.system ("chmod +x start.json && mv start.json start && mv start ../../bin")
         os.system ("start")
     except requests.exceptions.RequestException as e:
-        print ("\033[95mไม่พบการเชื่อมต่อ ตรวจสอบอีกครั้งใน 10 วินาที\033[0m")
-        time.sleep(10)
+        print ("\033[95mไม่พบการเชื่อมต่อ ตรวจสอบอีกครั้งใน 9 วินาที\033[0m")
+        time.sleep(9)
         os.system ("python3 check.py")
 with open("setip/ipserver.json", encoding="utf-8") as set:
              load = set.read()
