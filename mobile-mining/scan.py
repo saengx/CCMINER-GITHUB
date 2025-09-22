@@ -11,6 +11,8 @@ def scan_port(ips, port):
             json.dump(push, set, indent=4)
         sock.close()
         return True
+        if scan_port() == True
+            continue
         os.system("python3 check.py")
         #sys.exit("python3 เทสระบบ")
     except (socket.timeout, ConnectionRefusedError):
