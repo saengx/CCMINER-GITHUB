@@ -15,5 +15,6 @@ def check_internet_connection(url='http://www.google.com/', timeout=5):
         time.sleep(10)
         os.system ("python3 net.py")
 
-if __name__ == "__main__":
-    check_internet_connection()
+while True:
+     if __name__ == "__main__":
+check_internet_connection()
