@@ -34,4 +34,6 @@ with open("setip/ipserver.json", encoding="utf-8") as set:
          loads = json.loads(load)
          ip = loads['ip']
 if ip != '':
-   os.system("python3 check.py")   
+   os.system("python3 check.py") 
+else:
+   os.system("python3 scan.py") 
