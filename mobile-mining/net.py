@@ -19,4 +19,4 @@ def check_internet_connection(url='http://www.google.com/', timeout=5):
 while True:
      if __name__ == "__main__":
          check_internet_connection()
-         break
+        
