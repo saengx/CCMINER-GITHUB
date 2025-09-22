@@ -1,3 +1,3 @@
 #!/bin/bash
 cd ../etc/mobile-mining
-python3 scan.py
+python3 net.py
