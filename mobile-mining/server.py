@@ -28,7 +28,7 @@ def server(url, filename):
              print("\033[1;33;40m")
              os.system("figlet -f ANSI_Shadow OK")
              print("\033[00m\n")
-
+             time.sleep(3)
  except requests.exceptions.RequestException as e:
              print ("\n\033[95mไม่พบการเชื่อมต่อ ตรวจสอบอีกครั้งใน 10 วินาที\033[0m\n")
              time.sleep(10)
