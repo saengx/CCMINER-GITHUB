@@ -74,7 +74,7 @@ def runOffline():
         if cpu == "":
            cpu = "8"
 
-        print("\033[93mIP server\033[00m\n",ip)
+        #print("\033[93mIP server\033[00m\n",ip)
         print("\033[93mCONNECT USER\033[00m\n")
         print("USER =",user)
         print("file =",file)
