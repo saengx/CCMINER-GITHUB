@@ -4,8 +4,7 @@ import time
 import pip
 import requests
 from config import banner
-#from connect import autoconnect
-
+from ipv4 import get_local_ipv4
 # check import module
 try:
     with open("setip/ip.json", encoding="utf-8") as set:
@@ -17,8 +16,8 @@ try:
             load = set.read()
             loads = json.loads(load)
             cpupriority = loads['cpu-priority']
-            apiallow = loads['api-allow']
-            apibind = loads['api-bind']
+    if cpupriority == "":
+       cpupriority = "1"
     #os.system(f"python3 server.py")
     os.system(f"python3 connect.py")
     #autoconnect()
@@ -38,10 +37,11 @@ except ImportError:
     
     
 zergpool = ["stratum+tcp://verushash.mine.zergpool.com:3300","stratum+tcp://verushash.na.mine.zergpool.com:3300","stratum+tcp://verushash.eu.mine.zergpool.com:3300","stratum+tcp://verushash.asia.mine.zergpool.com:3300"]
-    
+localIPv4 = get_local_ipv4()    
     
 def runOffline():
     banner()
+    get_local_ipv4()
     try:
         with open("setip/ip.json", encoding="utf-8") as set:
             load = set.read()
@@ -101,7 +101,7 @@ def runOffline():
          os.system(f"python3 cpu.py")
          #time.sleep(2)
          #os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password} -t {cpu}")
-         os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password} -t {cpu} --cpu-priority {cpupriority} --api-allow={apiallow} --api-bind={apibind}")
+         os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password} -t {cpu} --cpu-priority {cpupriority} --api-allow={localIPv4}/16 --api-bind=0.0.0.0:4068")
     except:
         push = {'pool': '','wallet': '','pass': ''}
         with open("set-miner/online.json", "w") as set:
