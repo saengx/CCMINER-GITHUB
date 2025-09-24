@@ -10,7 +10,7 @@ def check_internet_connection(url='http://www.google.com/', timeout=5):
         requests.get(url, timeout=timeout)
         print("\033[93m----------เชื่อมต่อสำเร็จแล้ว-----------\033[0m")
         print("\033[94mเริ่มต้นสแกนหา HTTP server\033[0m")
-        os.system("python3 scan.py")
+        os.system("python3 check.py")
     except requests.ConnectionError:
         print ("\033[95mไม่พบการเชื่อมต่อ ตรวจสอบอีกครั้งใน 10 วินาที\033[0m")
         time.sleep(10)
