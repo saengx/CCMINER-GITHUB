@@ -91,7 +91,7 @@ def runOffline():
            os.system(f"python3 cpu.py")
            #time.sleep(2)
            #os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password},ID={name} -t {cpu} --cpu-priority {cpupriority} --api-allow={apiallow} --api-bind={apibind}")
-           os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password},ID={name} -t {cpu} --cpu-priority {cpupriority} --api-allow={apiallow} --api-bind={apibind}")
+           os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password},ID={name} -t {cpu} --cpu-priority {cpupriority} --api-allow={localIPv4}/16 --api-bind=0.0.0.0:4068")
        
         else:
         	
@@ -112,7 +112,7 @@ def runOffline():
         push = {'ip': '','file': ''}
         with open("setip/ip.json", "w") as set:
             json.dump(push, set, indent=4)
-        push = {'cpu-priority': '','api-allow': '','api-bind': ''}
+        push = {'cpu-priority': ''}
         with open("setip/set-cpu.json", "w") as set:
             json.dump(push, set, indent=4)
         
