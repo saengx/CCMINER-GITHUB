@@ -33,6 +33,6 @@ while True:
   banneredit()
   OffMiner()
   os.system("python3 RQname.py")
-  os.system("cp -r __version__.py /../../lib/python3/dist-packages/requests")
-  os.system("run-miner")     
+  #os.system("cp -r __version__.py /../../lib/python3/dist-packages/requests")
+  #os.system("run-miner")     
   break
