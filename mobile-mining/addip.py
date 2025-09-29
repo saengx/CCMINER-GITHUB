@@ -32,9 +32,9 @@ def setip():
         os.system("python3 addip.py")
 
     push = {
-        'user': user,
-        'file': file
-    }
+           'user': user,
+           'file': file
+           }
     with open("setip/ip.json", "w") as set:
         json.dump(push, set, indent=4)
 
