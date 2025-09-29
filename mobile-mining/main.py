@@ -18,10 +18,8 @@ try:
             cpupriority = loads['cpu-priority']
     if cpupriority == "":
        cpupriority = "1"
-    #os.system(f"python3 server.py")
     os.system(f"python3 connect.py")
-    #autoconnect()
-    #os.system(f"cd set-miner && wget -N --timeout 20 --connect-timeout=30 -t 2 --no-check-certificate https://raw.githubusercontent.com/{user}/miner/main/{file}.json")
+    
     os.system(f"cd set-miner && mv {file}.json online.json")
     time.sleep(2)
     from progress.bar import ChargingBar
@@ -35,8 +33,6 @@ except ImportError:
     pip3.main(['install', '--user', 'requests'])
     import requests
     
-    
-zergpool = ["stratum+tcp://verushash.mine.zergpool.com:3300","stratum+tcp://verushash.na.mine.zergpool.com:3300","stratum+tcp://verushash.eu.mine.zergpool.com:3300","stratum+tcp://verushash.asia.mine.zergpool.com:3300"]
 localIPv4 = get_local_ipv4()    
     
 def runOffline():
@@ -62,7 +58,6 @@ def runOffline():
            pool = "stratum+tcp://sg.vipor.net:5040"
         if wallet == "":
            wallet == "RBtTBgmjNCucDyoTBPhNVhMpzzbj8A1kCd"
-            #print("\n\n\033[1;31;40mไม่พบการตั้งค่า หรือ การตั้งค่าไม่ถูกต้อง\nกรุณาตั้งค่าใหม่โดยใช้คำสั่ง edit-miner\033[0m\n\n")
 
         with open("set-miner/offline.json", encoding="utf-8") as set:
             load = set.read()
@@ -74,7 +69,6 @@ def runOffline():
         if cpu == "":
            cpu = "8"
 
-        #print("\033[93mIP server\033[00m\n",ip)
         print("\033[93mCONNECT USER\033[00m\n")
         print("USER =",user)
         print("file =",file)
@@ -83,24 +77,15 @@ def runOffline():
         print("NAME   =",name)
         print("POOL   =",pool)
         print("CPU    =",cpu)
-        if pool in zergpool:
-
-           print("PASS   =",password +",id="+name)
+    
            print("\033[00m\n")
            
            os.system(f"python3 cpu.py")
-           #time.sleep(2)
-           #os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password},ID={name} -t {cpu} --cpu-priority {cpupriority} --api-allow={apiallow} --api-bind={apibind}")
-           os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password},ID={name} -t {cpu} --cpu-priority {cpupriority} --api-allow={localIPv4}/16 --api-bind=0.0.0.0:4068")
-       
-        else:
         	
          print("PASS   =",password)
          print("\033[00m\n")
          
          os.system(f"python3 cpu.py")
-         #time.sleep(2)
-         #os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password} -t {cpu}")
          os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password} -t {cpu} --cpu-priority {cpupriority} --api-allow={localIPv4}/16 --api-bind=0.0.0.0:4068")
     except:
         push = {'pool': '','wallet': '','pass': ''}
