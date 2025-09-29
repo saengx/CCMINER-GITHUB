@@ -5,7 +5,7 @@ import pip
 import requests
 from config import banner
 from ipv4 import get_local_ipv4
-# check import module
+
 try:
     with open("setip/ip.json", encoding="utf-8") as set:
             load = set.read()
