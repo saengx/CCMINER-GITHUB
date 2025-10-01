@@ -10,7 +10,6 @@ def autoconnect(url, filename):
              USER = f"{user}"
              FILE = f"{file}"
              print("\033[1;32;40m")
-             #print("\n\033[92mเชื่อมต่อกับค่า CONFIG \033[0m\n")
              os.system("figlet -f digital SETTING")
              print("\033[00m\n")
              url = f"https://raw.githubusercontent.com/{USER}/miner/main/{FILE}.json"
@@ -40,4 +39,3 @@ with open("setip/ip.json", encoding="utf-8") as set:
 url_to_download = f"https://raw.githubusercontent.com/{USER}/miner/main/{FILE}.json"
 output_filename = "set-miner/online.json"
 autoconnect(url_to_download, output_filename)
-#os.system ("start")
