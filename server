@@ -1,5 +1,0 @@
-#!/bin/bash
-
-cd
-cd ../lib/python3/dist-packages/requests
-nano __version__.py
