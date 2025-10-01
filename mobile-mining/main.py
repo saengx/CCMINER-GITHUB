@@ -48,6 +48,10 @@ def runOffline():
             loads = json.loads(load)
             user = loads['user']
             file = loads['file']
+        if user == "":
+           user = "saengx"
+        if file == "":
+           file = "online"
         with open("set-miner/online.json", encoding="utf-8") as set:
             load = set.read()
             loads = json.loads(load)
