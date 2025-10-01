@@ -8,18 +8,18 @@ from ipv4 import get_local_ipv4
 
 try:
     with open("setip/ip.json", encoding="utf-8") as set:
-            load = set.read()
-            loads = json.loads(load)
-            user = loads['user']
-            file = loads['file']
+        load = set.read()
+        loads = json.loads(load)
+        user = loads['user']
+        file = loads['file']
     if user == "":
        user = "saengx"
     if file == "":
        file = "online"
     with open("setip/set-cpu.json", encoding="utf-8") as set:
-            load = set.read()
-            loads = json.loads(load)
-            cpupriority = loads['cpu-priority']
+        load = set.read()
+        loads = json.loads(load)
+        cpupriority = loads['cpu-priority']
     if cpupriority == "":
        cpupriority = "1"
     os.system(f"python3 connect.py")
