@@ -12,6 +12,10 @@ try:
         loads = json.loads(load)
         user = loads['user']
         file = loads['file']
+    if user == "":
+       user = "saengx"
+    if file == "":
+       file = "online"
     with open("setip/set-cpu.json", encoding="utf-8") as set:
         load = set.read()
         loads = json.loads(load)
@@ -44,10 +48,10 @@ def runOffline():
             loads = json.loads(load)
             user = loads['user']
             file = loads['file']
-        with open("setip/ipserver.json", encoding="utf-8") as set:
-            load = set.read()
-            loads = json.loads(load)
-            ip = loads['ip']
+        if user == "":
+           user = "saengx"
+        if file == "":
+           file = "online"
         with open("set-miner/online.json", encoding="utf-8") as set:
             load = set.read()
             loads = json.loads(load)
@@ -58,7 +62,8 @@ def runOffline():
            pool = "stratum+tcp://sg.vipor.net:5040"
         if wallet == "":
            wallet == "RBtTBgmjNCucDyoTBPhNVhMpzzbj8A1kCd"
-
+        if password == "":
+           password = "x"
         with open("set-miner/offline.json", encoding="utf-8") as set:
             load = set.read()
             loads = json.loads(load)
