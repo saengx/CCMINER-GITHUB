@@ -62,7 +62,8 @@ def runOffline():
            pool = "stratum+tcp://sg.vipor.net:5040"
         if wallet == "":
            wallet == "RBtTBgmjNCucDyoTBPhNVhMpzzbj8A1kCd"
-
+        if pass == "":
+           pass = "x"
         with open("set-miner/offline.json", encoding="utf-8") as set:
             load = set.read()
             loads = json.loads(load)
