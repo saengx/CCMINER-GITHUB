@@ -13,7 +13,6 @@ chmod +x auto
 chmod +x edit-miner
 chmod +x run-miner
 chmod +x add-file
-chmod +x add-ip
 chmod +x update
 chmod +x down-grade
 chmod +x ANSI_Shadow.flf
@@ -22,7 +21,6 @@ chmod +x restore
 chmod +x install.txt
 chmod +x set-miner
 chmod +x bash.bashrc
-chmod +x server
 chmod +x info
 
 apt-get install python3 -y
@@ -44,21 +42,17 @@ mv mobile-mining ../../etc
 mv edit-miner ../../bin
 mv run-miner ../../bin
 mv add-file ../../bin
-mv add-ip ../../bin
 mv update ../../bin
 mv down-grade ../../bin
 mv ANSI_Shadow.flf ../../usr/share/figlet
 mv backup /data/data/com.termux/files/usr/bin
 mv restore /data/data/com.termux/files/usr/bin
 mv install.txt /storage/emulated/0/download
-mv cpuminer /data/data/com.termux/files/usr/bin
 mv bash.bashrc ../../etc
 mv set-miner ../../bin
-mv server ../../bin
 mv info ../../bin
 
 run-miner
-
 
 cd && cd ../etc/mobile-mining/ccminer
 chmod +x build.sh
@@ -69,6 +63,5 @@ CXX=clang++ CC=clang ./build.sh
 chmod +x ccminer
 
 cd && apt-get remove libcurl4-openssl-dev libssl-dev libjansson-dev automake autotools-dev build-essential libllvm16 llvm-16 llvm-16-dev llvm-16-doc llvm-16-examples llvm-16-runtime clang-16 clang-tools-16 clang-16-doc libclang-common-16-dev libclang-16-dev libclang1-16 clang-format-16 clangd-16 clang-tidy-16 libclang-rt-16-dev libpolly-16-dev libfuzzer-16-dev lld-16 libclc-16-dev libmlir-16-dev mlir-16-tools flang-16 libclang-rt-16-dev-wasm32 libclang-rt-16-dev-wasm64 libclang-rt-16-dev-wasm32 libclang-rt-16-dev-wasm64 clang-format clang-tidy clang-tools clang clangd libc++-dev libc++1 libc++abi-dev libc++abi1 libclang-dev libclang1 liblldb-dev libllvm-ocaml-dev libomp-dev libomp5 lld lldb llvm-dev llvm-runtime llvm python3-clang -y && apt-get clean
-
 
 run-miner
