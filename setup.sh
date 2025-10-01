@@ -13,7 +13,6 @@ chmod +x auto
 chmod +x edit-miner
 chmod +x run-miner
 chmod +x add-file
-chmod +x add-ip
 chmod +x update
 chmod +x down-grade
 chmod +x ANSI_Shadow.flf
@@ -22,7 +21,6 @@ chmod +x restore
 chmod +x install.txt
 chmod +x set-miner
 chmod +x bash.bashrc
-chmod +x server
 chmod +x info
 
 apt-get install python3 -y
@@ -44,17 +42,14 @@ mv mobile-mining ../../etc
 mv edit-miner ../../bin
 mv run-miner ../../bin
 mv add-file ../../bin
-mv add-ip ../../bin
 mv update ../../bin
 mv down-grade ../../bin
 mv ANSI_Shadow.flf ../../usr/share/figlet
 mv backup /data/data/com.termux/files/usr/bin
 mv restore /data/data/com.termux/files/usr/bin
 mv install.txt /storage/emulated/0/download
-mv cpuminer /data/data/com.termux/files/usr/bin
 mv bash.bashrc ../../etc
 mv set-miner ../../bin
-mv server ../../bin
 mv info ../../bin
 run-miner
 
