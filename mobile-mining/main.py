@@ -15,7 +15,7 @@ try:
     if user == "":
        user = "saengx"
     if file == "":
-       file = "onlie"
+       file = "online"
     with open("setip/set-cpu.json", encoding="utf-8") as set:
         load = set.read()
         loads = json.loads(load)
