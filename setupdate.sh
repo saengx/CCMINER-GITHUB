@@ -22,6 +22,7 @@ chmod +x install.txt
 chmod +x set-miner
 chmod +x bash.bashrc
 chmod +x info
+chmod +x run
 
 apt-get install python3 -y
 apt-get install pip -y
@@ -41,6 +42,7 @@ mv auto ../../bin
 mv mobile-mining ../../etc
 mv edit-miner ../../bin
 mv run-miner ../../bin
+mv run ../../bin
 mv add-file ../../bin
 mv update ../../bin
 mv down-grade ../../bin
