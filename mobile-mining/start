@@ -1,5 +1,5 @@
 #!/bin/bash
 
-#run
-run-miner
+run
+#run-miner
 #update
