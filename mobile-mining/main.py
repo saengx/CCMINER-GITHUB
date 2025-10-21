@@ -87,7 +87,9 @@ def runOffline():
          
         timer = 15
         os.system(f"python3 cpu.py")
-        os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password} -t {cpu} --cpu-priority {cpupriority} --api-allow={localIPv4}/16 --api-bind=0.0.0.0:4068 & cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password} -d 0 --api-allow={localIPv4}/16 --api-bind=0.0.0.0:4069")
+        os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password} -t {cpu} --cpu-priority {cpupriority} --api-allow={localIPv4}/16 --api-bind=0.0.0.0:4068 --time-limit {timer} & cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password} -d 0 --api-allow={localIPv4}/16 --api-bind=0.0.0.0:4069 --time-limit {timer}")
+        time.sleep(3)
+        os.system("exit & run-miner")
     except:
         
         
