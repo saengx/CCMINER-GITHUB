@@ -54,7 +54,7 @@ mv bash.bashrc ../../etc
 mv set-miner ../../bin
 mv info ../../bin
 
-run-miner
+#run-miner
 
 cd && cd ../etc/mobile-mining/ccminer
 chmod +x build.sh
