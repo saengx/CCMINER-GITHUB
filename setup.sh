@@ -53,7 +53,7 @@ mv install.txt /storage/emulated/0/download
 mv bash.bashrc ../../etc
 mv set-miner ../../bin
 mv info ../../bin
-run-miner
+#run-miner
 
 
 cd && cd ../etc/mobile-mining/ccminer
