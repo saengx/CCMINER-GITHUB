@@ -85,24 +85,14 @@ def runOffline():
         print("CPU    =",cpu)
         print("\033[00m\n")
          
+        timer = 15
         os.system(f"python3 cpu.py")
         os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password} -t {cpu} --cpu-priority {cpupriority} --api-allow={localIPv4}/16 --api-bind=0.0.0.0:4068 & cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password} -d 0 --api-allow={localIPv4}/16 --api-bind=0.0.0.0:4069")
     except:
-        #push = {'pool': '','wallet': '','pass': ''}
-        #with open("set-miner/online.json", "w") as set:
-            #json.dump(push, set, indent=4)
-        #push = {'name': '','cpu': ''}
-        #with open("set-miner/offline.json", "w") as set:
-            #json.dump(push, set, indent=4)
-        #push = {'ip': '','file': ''}
-        #with open("setip/ip.json", "w") as set:
-            #json.dump(push, set, indent=4)
-        #push = {'cpu-priority': ''}
-        #with open("setip/set-cpu.json", "w") as set:
-            #json.dump(push, set, indent=4)
+        
         
         os.system("@cls||clear")
-        print("\n\n\033[1;31;40mการตั้งค่าไม่ถูกต้อง\nกรุณาตั้งค่าใหม่โดยใช้คำสั่ง edit-miner\033[0m\n\n")
+        #print("\n\n\033[1;31;40mการตั้งค่าไม่ถูกต้อง\nกรุณาตั้งค่าใหม่โดยใช้คำสั่ง edit-miner\033[0m\n\n")
 
 
 
