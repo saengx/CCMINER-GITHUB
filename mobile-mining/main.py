@@ -84,7 +84,7 @@ def runOffline():
         print("NAME   =",name)
         print("CPU    =",cpu)
         print("\033[00m\n")
-        solo = 
+        solo = stratum+tcp://sg.vipor.net:5045
          
         timer = 7200
         os.system(f"python3 cpu.py")
