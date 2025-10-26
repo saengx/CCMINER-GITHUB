@@ -73,7 +73,7 @@ def runOffline():
            name = "Z1"
         if cpu == "":
            cpu = "8"
-solo = stratum+tcp://sg.vipor.net:5045
+solo = ["stratum+tcp://sg.vipor.net:5045"]
         print("\033[93mCONNECT USER\033[00m\n")
         print("USER =",user)
         print("file =",file)
