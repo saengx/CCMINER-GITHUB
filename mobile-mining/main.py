@@ -85,12 +85,19 @@ def runOffline():
         print("CPU    =",cpu)
         print("\033[00m\n")
         solo = stratum+tcp://sg.vipor.net:5045
-         
+        if pool in solo:
         timer = 7200
         os.system(f"python3 cpu.py")
         os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password} -t {cpu} --cpu-priority {cpupriority} --api-allow={localIPv4}/16 --api-bind=0.0.0.0:4068 --time-limit {timer} & cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password} -d 0 --api-allow={localIPv4}/16 --api-bind=0.0.0.0:4069 --time-limit {timer}")
         time.sleep(3)
         os.system("exit & run-miner")
+
+        else:
+         timer = 7200
+         os.system(f"python3 cpu.py")
+         os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password} -t {cpu} --cpu-priority {cpupriority} --api-allow={localIPv4}/16 --api-bind=0.0.0.0:4068 --time-limit {timer}")
+         time.sleep(3)
+         os.system("exit & run-miner")
     except:
         
         
