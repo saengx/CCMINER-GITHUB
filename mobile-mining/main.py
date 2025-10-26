@@ -73,7 +73,7 @@ def runOffline():
            name = "Z1"
         if cpu == "":
            cpu = "8"
-
+solo = stratum+tcp://sg.vipor.net:5045
         print("\033[93mCONNECT USER\033[00m\n")
         print("USER =",user)
         print("file =",file)
@@ -84,7 +84,6 @@ def runOffline():
         print("NAME   =",name)
         print("CPU    =",cpu)
         print("\033[00m\n")
-        solo = stratum+tcp://sg.vipor.net:5045
         if pool in solo:
         timer = 7200
         os.system(f"python3 cpu.py")
