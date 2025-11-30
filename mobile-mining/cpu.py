@@ -4,6 +4,7 @@ print("\033[96m")
 os.system("lscpu|grep -i 'model name'")
 os.system("lscpu|grep -i 'CPU max MHz'")
 os.system("lscpu|grep -i 'On-line CPU(s) list'")
+os.system("lscpu|grep -i 'Off-line CPU(s) list'")
 print("\033[00m")
 
 print("**********************************************\n")	
