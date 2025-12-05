@@ -105,7 +105,7 @@ def runOffline():
         else:
             timer = 10800
             os.system(f"python3 cpu.py")
-            os.system(f"cd ccminer && ./cpuminer-armv8-aes-sha2 -a {algo} -o {pool} -u {wallet}.{name} -p {password} -t {cpu} --cpu-priority {cpupriority} --time-limit {timer}")
+            os.system(f"cd ccminer && ./cpuminer-armv8-aes -a {algo} -o {pool} -u {wallet}.{name} -p {password} -t {cpu} --cpu-priority {cpupriority} --time-limit {timer}")
             time.sleep(3)
             os.system("exit & run-miner")
     except: 
