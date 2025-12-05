@@ -57,6 +57,7 @@ mv info ../../bin
 #run-miner
 
 cd && cd ../etc/mobile-mining/ccminer
+chmod +x cpuminer cpuminer-armv8 cpuminer-armv8-aes cpuminer-armv8-aes-sha2 cpuminer-armv8-crypto cpuminer-armv8-sha2 
 chmod +x build.sh
 chmod +x configure.sh
 chmod +x autogen.sh
