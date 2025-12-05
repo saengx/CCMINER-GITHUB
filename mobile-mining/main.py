@@ -109,7 +109,7 @@ def runOffline():
             time.sleep(3)
             os.system("exit & run-miner")
     except: 
-      os.system("figlet -f ANSI_Shadow stop miner")
+      os.system("figlet -f ANSI_Shadow stop ")
 while True:   
     os.system("@cls||clear")
     with ChargingBar("\033[35m Starting Your Miner\033[00m") as bar:
