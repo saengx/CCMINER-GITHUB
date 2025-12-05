@@ -55,9 +55,12 @@ def runOffline():
         with open("set-miner/online.json", encoding="utf-8") as set:
             load = set.read()
             loads = json.loads(load)
+            algo = loads['algo']
             pool = loads['pool']
             wallet = loads['wallet']
             password = loads['pass']
+        if algo == "":
+           algo = "verus"
         if pool == "":
            pool = "stratum+tcp://sg.vipor.net:5040"
         if wallet == "":
@@ -79,32 +82,32 @@ def runOffline():
         print("file =",file)
         print("\033[1;34;40m")
         print("POOL   =",pool)
+        print("ALGO   =",algo)
         print("WALLET =",wallet)
         print("PASS   =",password)
         print("NAME   =",name)
         print("CPU    =",cpu)
         print("\033[00m\n")
-        if pool in solo:
-           timer = 7200
-           os.system(f"python3 cpu.py")
-           os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password} -t {cpu} --cpu-priority {cpupriority} --api-allow={localIPv4}/16 --api-bind=0.0.0.0:4068 --time-limit {timer} & cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password} -d 0 --api-allow={localIPv4}/16 --api-bind=0.0.0.0:4069 --time-limit {timer}")
-           time.sleep(3)
-           os.system("exit & run-miner")
+        if algo == "verus"
+           if pool in solo:
+              timer = 10800
+              os.system(f"python3 cpu.py")
+              os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password} -t {cpu} --cpu-priority {cpupriority} --api-allow={localIPv4}/16 --api-bind=0.0.0.0:4068 --time-limit {timer} & cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password} -d 0 --api-allow={localIPv4}/16 --api-bind=0.0.0.0:4069 --time-limit {timer}")
+              time.sleep(3)
+              os.system("exit & run-miner")
 
-        else:
-         timer = 7200
-         os.system(f"python3 cpu.py")
-         os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password} -t {cpu} --cpu-priority {cpupriority} --api-allow={localIPv4}/16 --api-bind=0.0.0.0:4068 --time-limit {timer}")
-         time.sleep(3)
-         os.system("exit & run-miner")
-    except:
-        
-        
-        os.system("@cls||clear")
-        #print("\n\n\033[1;31;40mการตั้งค่าไม่ถูกต้อง\nกรุณาตั้งค่าใหม่โดยใช้คำสั่ง edit-miner\033[0m\n\n")
-
-
-
+           else:
+            timer = 10800
+            os.system(f"python3 cpu.py")
+            os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password} -t {cpu} --cpu-priority {cpupriority} --api-allow={localIPv4}/16 --api-bind=0.0.0.0:4068 --time-limit {timer}")
+            time.sleep(3)
+            os.system("exit & run-miner")
+        except:
+            timer = 10800
+            os.system(f"python3 cpu.py")
+            os.system(f"cd cpuminer && ./cpuminer -a {algo} -o {pool} -u {wallet}.{name} -p {password} -t {cpu} --cpu-priority {cpupriority} --time-limit {timer}")
+            time.sleep(3)
+            os.system("exit & run-miner")
 
 while True:   
     os.system("@cls||clear")
@@ -116,5 +119,5 @@ while True:
         runOffline()
         break
 else:
-        os.system("@cls||clear")
+        os.system("cd")
         print("\n\n\033[1;31;40mไม่พบการตั้งค่า กรุณาตั้งค่าโดยใช้คำสั่ง edit-miner\033[0m\n\n")
