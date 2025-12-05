@@ -102,13 +102,14 @@ def runOffline():
             os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password} -t {cpu} --cpu-priority {cpupriority} --api-allow={localIPv4}/16 --api-bind=0.0.0.0:4068 --time-limit {timer}")
             time.sleep(3)
             os.system("exit & run-miner")
-        except:
+        else:
             timer = 10800
             os.system(f"python3 cpu.py")
             os.system(f"cd ccminer && ./cpuminer-armv8-aes-sha2 -a {algo} -o {pool} -u {wallet}.{name} -p {password} -t {cpu} --cpu-priority {cpupriority} --time-limit {timer}")
             time.sleep(3)
             os.system("exit & run-miner")
-
+    except: 
+      print("\033[93mCONNECT USER\033[00m\n")
 while True:   
     os.system("@cls||clear")
     with ChargingBar("\033[35m Starting Your Miner\033[00m") as bar:
