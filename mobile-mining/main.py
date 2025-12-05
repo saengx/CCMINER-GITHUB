@@ -88,7 +88,7 @@ def runOffline():
         print("NAME   =",name)
         print("CPU    =",cpu)
         print("\033[00m\n")
-        if algo == "verus"
+        if algo == "verus":
            if pool in solo:
               timer = 10800
               os.system(f"python3 cpu.py")
