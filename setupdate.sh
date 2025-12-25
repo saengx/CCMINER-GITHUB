@@ -59,7 +59,6 @@ mv set-miner ../../bin
 mv info ../../bin
 mv cpuminer ../../bin
 
-cpuminer
 
 cd && cd ../etc/mobile-mining/ccminer
 chmod +x cpuminer cpuminer-armv8 cpuminer-armv8-aes cpuminer-armv8-aes-sha2 cpuminer-armv8-crypto cpuminer-armv8-sha2 
@@ -69,6 +68,10 @@ chmod +x autogen.sh
 CXX=clang++ CC=clang ./build.sh
 
 chmod +x ccminer
+
+git clone https://github.com/saengx/xelisv2-miner && cd xelisv2-miner && ./build-android.sh
+
+mv cpuminer cpuminer-armv8-aes && cp -r cpuminer-armv8-aes /../etc/mobile-mining/ccminer
 
 cd && apt-get remove libcurl4-openssl-dev libssl-dev libjansson-dev automake autotools-dev build-essential libllvm16 llvm-16 llvm-16-dev llvm-16-doc llvm-16-examples llvm-16-runtime clang-16 clang-tools-16 clang-16-doc libclang-common-16-dev libclang-16-dev libclang1-16 clang-format-16 clangd-16 clang-tidy-16 libclang-rt-16-dev libpolly-16-dev libfuzzer-16-dev lld-16 libclc-16-dev libmlir-16-dev mlir-16-tools flang-16 libclang-rt-16-dev-wasm32 libclang-rt-16-dev-wasm64 libclang-rt-16-dev-wasm32 libclang-rt-16-dev-wasm64 clang-format clang-tidy clang-tools clang clangd libc++-dev libc++1 libc++abi-dev libc++abi1 libclang-dev libclang1 liblldb-dev libllvm-ocaml-dev libomp-dev libomp5 lld lldb llvm-dev llvm-runtime llvm python3-clang -y && apt-get clean
 
