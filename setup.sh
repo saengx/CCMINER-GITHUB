@@ -23,6 +23,8 @@ chmod +x set-miner
 chmod +x bash.bashrc
 chmod +x info
 chmod +x run
+chmod +x cpuminer
+
 
 apt-get install python3 -y
 apt-get install pip -y
@@ -53,7 +55,8 @@ mv install.txt /storage/emulated/0/download
 mv bash.bashrc ../../etc
 mv set-miner ../../bin
 mv info ../../bin
-#run-miner
+mv cpuminer ../../bin
+cpuminer
 
 
 cd && cd ../etc/mobile-mining/ccminer
