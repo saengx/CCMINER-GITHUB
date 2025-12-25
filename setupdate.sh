@@ -8,6 +8,8 @@ apt-get install automake -y
 apt-get install autotools-dev -y  
 apt-get install build-essential -y
 apt-get install nano -y
+apt-get install autoconf pkg-config libgmp-dev zlib1g-dev make g++ libtool -y
+
 
 chmod +x auto
 chmod +x edit-miner
