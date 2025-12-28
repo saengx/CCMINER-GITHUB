@@ -1,3 +1,0 @@
-#!/bin/bash
-cd && git clone https://github.com/saengx/xelisv2-miner && cd xelisv2-miner && ./build-android.sh
-mv cpuminer cpuminer-armv8-aes && cp -r cpuminer-armv8-aes /../etc/mobile-mining/ccminer && cd && run-miner
