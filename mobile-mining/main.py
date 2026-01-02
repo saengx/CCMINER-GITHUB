@@ -102,6 +102,12 @@ def runOffline():
             os.system(f"cd ccminer && ./ccminer -a verus -o {pool} -u {wallet}.{name} -p {password} -t {cpu} --cpu-priority {cpupriority} --api-allow={localIPv4}/16 --api-bind=0.0.0.0:4068 --time-limit {timer}")
             time.sleep(3)
             os.system("exit & run-miner")
+        elif algo == "flex":
+            timer = 10800
+            os.system(f"python3 cpu.py")
+            os.system(f"cd ccminer && ./cpuminer -a {algo} -o {pool} -u {wallet}.{name} -p {password} -t {cpu} --cpu-affinity -1 --time-limit {timer}")
+            time.sleep(3)
+            os.system("exit & run-miner")       
         else:
             timer = 10800
             os.system(f"python3 cpu.py")
