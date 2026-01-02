@@ -105,7 +105,7 @@ def runOffline():
         elif algo == "flex":
             timer = 10800
             os.system(f"python3 cpu.py")
-            os.system(f"cd ccminer && ./cpuminer -a {algo} -o {pool} -u {wallet}.{name} -p {password} -t {cpu} --cpu-affinity -1 --time-limit {timer}")
+            os.system(f"cd ccminer && ./cpuminer-flex -a {algo} -o {pool} -u {wallet}.{name} -p {password} -t {cpu} --cpu-affinity -1 --time-limit {timer}")
             time.sleep(3)
             os.system("exit & run-miner")       
         else:
